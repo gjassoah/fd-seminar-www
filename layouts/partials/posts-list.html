@@ -1,0 +1,12 @@
+{{ range . }}
+<li>
+    <span class="list__title--small">
+        {{if not .Date.IsZero}}
+        <time>{{ .Date.Format (.Site.Params.dateformat | default "02.01.2006") }} | </time>
+        {{end}} <a href="{{ .RelPermalink }}" {{if .Draft}}class="draft"{{end}}>{{ .Title }}</a>
+    </span>
+    <span style="display: block;">
+        {{ .Params.speaker.Name }} ({{ .Params.speaker.Affiliation }})
+    </span>
+</li>
+{{ end }}

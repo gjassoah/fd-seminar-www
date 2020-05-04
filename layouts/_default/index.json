@@ -1,0 +1,6 @@
+{{- $.Scratch.Add "index" slice -}}
+{{ $talks := .Paginate (where $.Site.Pages "Section" "talks") }}
+{{- range $talks.Pages -}}
+    {{- $.Scratch.Add "index" (dict "title" .Title "tags" .Params.tags "categories" .Params.categories "contents" .Plain "permalink" .Permalink "speaker" .Params.speaker.Name "affiliation" .Params.speaker.Affiliation "date" .Date "homepage" .Params.speaker.Homepage) -}}
+{{- end -}}
+{{- $.Scratch.Get "index" | jsonify -}}

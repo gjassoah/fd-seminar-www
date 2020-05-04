@@ -1,0 +1,55 @@
++++
+title = "About"
+menu = "main"
+type = "about"
++++
+
+## About the FD Seminar
+
+The FD Seminar is a weekly online seminar on representation theory of quivers and finite-dimensional algebras. The seminar aims to become a virtual meeting space for representation-theorists worldwide (transcending the COVID-19 crisis which catalysed its inception), and wishes also to provide an international forum for researchers who may otherwise not have access to such. 
+
+The seminar takes place every Thursday at 11:00 UTC (times are displayed in your local timezone elsewhere in the website), and will be suspended during certain holidays and to prevent clashes with important events in the field (e.g. the ICRA). These suspensions will be announced in this website and through [our mailing list](/).
+
+The seminar is organised by
+
+- [Gustavo Jasso](http://www.math.uni-bonn.de/~schroer/) (Bonn)
+- [Julian Külshammer](https://katalog.uu.se/profile/?id=N18-1115) (Uppsala)
+- etc.
+
+Please send your comments and suggestions (including suggestions of potential speakers) by e-mail to [suggestions@fd-seminar.xyz](mailto:suggestions@fd-seminar.xyz).
+
+## Information for participants
+
+The FD Seminar runs on [BigBlueButton](https://bigbluebutton.org/), an open-source web conferencing system. Although it is not required for attending the talks, we encourage you to create an account in [our BigBlueButton instance](https://bbb.fd-seminar.xyz); creating an account will allow you to watch the recordings of previous talks. If you do not wish to create an account, you will need to [subscribe to our mailing list](/) where the password for the upcoming talk will be distributed. We will also use the mailing list to inform you if the upcoming speaker wishes to have their talk recorded; please take this into consideration when deciding to attend the talk.
+
+## Information for speakers
+
+We recommend that you create an account in [our BigBlueButton instance](https://bbb.fd-seminar.xyz). Please inform us after you do so; we will then give your account the role of 'speaker' so you can test-drive the software before your talk. During your talk you will be able to upload a PDF file which will be shown in the participants' screens (for example, a LaTeX beamer presentation). This is much less resource-intensive than sharing your screen with the PDF file open in your own computer. BigBlueButton provides basic annotation functionalities which we encourage you to experiment with before your talk. We also suggest that you allow us to make your PDF file available for download as it will be helpful for participants to have access to it in a different application during your talk; this can be done directly through BigBlueButton during the talk.
+
+In addition, BigBlueButton provides the usual web-conferencing functionalities: public and private chat, screen-sharing, polling, status icons, etc. We recommend you to watch some of the [video tutorials](https://bigbluebutton.org/html5/) for more details.
+
+### Recordings 
+
+By default, talks will not be recorded. If you are interested in your talk being recorded please let us know in advance so we can inform the participants of this through our mailing list. The recording will then be hosted in our BigBlueButton instance, where it can be viewed by any registered user. As a speaker, you retain ownership of the recording and can request its removal from our server at any point (we are also happy to provide you with a copy of the recording).
+
+Thank you for contributing to the FD Seminar!
+
+## Technical information
+
+### Server
+
+Currently, our server is located in Frankfurt, Germany and is rented from the cloud-hosting company [Linode](https://www.linode.com/).
+
+ If you create an account in our BigBlueButton instance, the following information will be stored in our server:
+
+* The e-mail address you use to create your account.
+* The password you use to create your account; for your own protection, we strongly recommend that you use a new password for your account.
+* The name you enter when creating your account.
+
+Our SSL/TLS certificates (needed for encrypting the traffic through our website and BigBlueButton instance) are provided by [Let's Encrypt](https://letsencrypt.org).
+
+{{< note "" >}}If you are interested in how we set-up our server, click [here](/diy).{{< /note >}}
+
+### Website
+
+Our website is built with [Hugo](https://gohugo.io/), an open-source static website generator; it uses a modified version of the [Hyde-Hyde theme](https://themes.gohugo.io/hyde-hyde/) by [htr3n](https://htr3n.github.io/) as well as [Google Fonts](https://fonts.google.com/). We use JavaScript for [displaying times in your local timezone](https://momentjs.com/), [rendering mathematical formulae](https://katex.org/), and [searching the talk archive](https://fusejs.io/).

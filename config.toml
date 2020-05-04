@@ -1,0 +1,43 @@
+baseURL = "https://www.fd-seminar.xyz"
+languageCode = "en-us"
+title = "FD Seminar"
+theme = "hyde-hyde"
+buildFuture = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  
+[params]
+  description = "Online seminar on representation theory of finite-dimensional algebras"
+  postNavigation = true
+  relatedPosts = true
+  mainSections = ["talks"]
+  bbbURL = "https://bbb.fd-seminar.xyz"
+  mailinglistURL = "/"
+  toc = "hugo"
+
+[[menu.main]]
+  name = "Home"
+  identifier = "home"
+  URL = "/"
+  weight = 100
+
+[[menu.main]]
+  name = "BigBlueButton"
+  identifier = "bbb"
+  URL = "https://bbb.fd-seminar.xyz"
+
+[[menu.main]]
+  name = "Mailing list"
+  identifier = "mailinglist"
+  url = "/"
+
+[related]
+
+threshold = 80
+includeNewer = true
+toLower = false
+
+[[related.indices]]
+name = "tags"
+weight = 100

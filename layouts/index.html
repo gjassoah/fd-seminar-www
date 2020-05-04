@@ -1,0 +1,47 @@
+{{ define "header" }}
+{{ partial "header.html" . }}
+{{ end }}
+
+{{ define "content" }}
+{{ partial "announcements.html" . }}
+{{ $pages := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
+{{ range first 1 $pages.Pages }}
+<div class="upcoming-talk">
+    <h3>Upcoming talk</h3>
+    <div>
+        <h1>{{ .Title }}</h1>
+    </div>
+    <div class="post__meta">
+    <div>
+        <i class="fas fa-user"></i> <a href="{{ .Params.speaker.Homepage }}">{{ .Params.speaker.Name }}</a>
+    </div>
+    {{ if .Params.speaker.affiliation }}
+    <div>
+        <i class="fas fa-university"></i> {{ .Params.speaker.Affiliation }}
+    </div>
+    {{ end }}
+    <div>
+        <i class="fas fa-calendar-alt"></i>
+        <script>
+         document.write(moment.utc({{ .Date }}).local().format('llll'));
+        </script>
+    </div>
+    </div>
+    <div class="abstract">
+        {{ .Content }}
+    </div>
+</div>
+{{ end }}
+{{ partial "about-info.html" . }}
+{{ partial "archive-info.html" . }}
+{{ partial "bbb-info.html" . }}
+{{ partial "mailinglist-info.html" . }}
+{{ end }}
+
+{{ define "footer" }}
+{{ if .Site.GoogleAnalytics }}
+<!-- Google Analytics -->
+{{ template "_internal/google_analytics_async.html" . }}
+{{ end }}
+{{ partial "footer/font-awesome-js.html" . }}
+{{ end }}

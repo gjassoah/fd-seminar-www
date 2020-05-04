@@ -1,0 +1,14 @@
+<span class="item__title--big">
+    {{ .Title }}
+</span>
+{{ if .Params.speaker.affiliation }}
+<span class="item__speaker"> 
+    <i class="fas fa-user"></i> <a href="{{ .Params.speaker.Homepage }}">{{ .Params.speaker.Name }}</a>
+</span>
+{{ end }}
+<span class="item__speaker-affiliation"> 
+    <i class="fas fa-university"></i> {{ .Params.speaker.Affiliation }}
+</span>
+<span class="item__date">
+    <i class="fas fa-calendar-alt"></i> {{ .Date.Format (.Site.Params.dateformat | default "Jan 02, 2006") }}
+</span>
