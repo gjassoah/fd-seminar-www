@@ -20,13 +20,13 @@ Please send your comments and suggestions (including suggestions of potential sp
 
 ## Information for participants
 
-The FD Seminar runs on [BigBlueButton](https://bigbluebutton.org/), an open-source web conferencing system. Although it is not required for attending the talks, we encourage you to create an account in [our BigBlueButton instance](https://bbb.fd-seminar.xyz); creating an account will allow you to watch the recordings of previous talks. If you do not wish to create an account, you will need to [subscribe to our mailing list](/) where the password for the upcoming talk will be distributed. We will also use the mailing list to inform you if the upcoming speaker wishes to have their talk recorded; please take this into consideration when deciding to attend the talk.
+The FD Seminar runs on [BigBlueButton](https://bigbluebutton.org/), an open-source web conferencing system. Although you do not need to register to attend talks in the seminar, creating an account in [our BigBlueButton instance](https://bbb.fd-seminar.xyz) will allow you to watch the recordings of previous talks. If you do not wish to create an account, you will need to [subscribe to our mailing list](/) where the password for the upcoming talk will be distributed. We will also use the mailing list to inform you if the upcoming speaker wishes to have their talk recorded; please take this into consideration when deciding to attend the talk.
 
 ## Information for speakers
 
 We recommend that you create an account in [our BigBlueButton instance](https://bbb.fd-seminar.xyz). Please inform us after you do so; we will then give your account the role of 'speaker' so you can test-drive the software before your talk. During your talk you will be able to upload a PDF file which will be shown in the participants' screens (for example, a LaTeX beamer presentation). This is much less resource-intensive than sharing your screen with the PDF file open in your own computer. BigBlueButton provides basic annotation functionalities which we encourage you to experiment with before your talk. We also suggest that you allow us to make your PDF file available for download as it will be helpful for participants to have access to it in a different application during your talk; this can be done directly through BigBlueButton during the talk.
 
-In addition, BigBlueButton provides the usual web-conferencing functionalities: public and private chat, screen-sharing, polling, status icons, etc. We recommend you to watch some of the [video tutorials](https://bigbluebutton.org/html5/) for more details.
+In addition, BigBlueButton provides the usual web-conferencing functionalities: public and private chat, screen sharing, polling, status icons, etc. We recommend you to watch some of the [video tutorials](https://bigbluebutton.org/html5/) for more details.
 
 ### Recordings 
 
@@ -48,7 +48,7 @@ Currently, our server is located in Frankfurt, Germany and is rented from the cl
 
 Our SSL/TLS certificates (needed for encrypting the traffic through our website and BigBlueButton instance) are provided by [Let's Encrypt](https://letsencrypt.org).
 
-{{< note "" >}}If you are interested in how we set-up our server, click [here](/diy).{{< /note >}}
+{{< note >}}If you are interested in how we set-up our server, click [here](/diy).{{< /note >}}
 
 ### Website
 
