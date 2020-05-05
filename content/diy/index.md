@@ -29,7 +29,7 @@ The FD Seminar itself runs on [BigBlueButton (BBB)](https://bigbluebutton.org/),
 
 ## Greenlight
 
-You need to install one more piece of software, called [Greenlight](https://docs.bigbluebutton.org/greenlight/gl-overview.html), which serves as a front-end to your BBB server; with it you can manage BBB's users, rooms, and recordings. I installed it following the [Greenlight official installation guide](https://docs.bigbluebutton.org/greenlight/gl-install.html) and it took be about half an hour. I needed to customise Greenlight to fit our needs; for this I followed the [Greenlight official customisation guide](https://docs.bigbluebutton.org/greenlight/gl-customize.html), which took me a further ten minutes. Customising Greenlight is a potential rabbit hole; I probably spent around four hours on this.
+You need to install one more piece of software, called [Greenlight](https://docs.bigbluebutton.org/greenlight/gl-overview.html), which serves as a front-end to your BBB server; with it you can manage BBB's users, rooms, and recordings. I installed it following the [Greenlight official installation guide](https://docs.bigbluebutton.org/greenlight/gl-install.html) and it took me about half an hour. I needed to customise Greenlight to fit our needs; for this I followed the [Greenlight official customisation guide](https://docs.bigbluebutton.org/greenlight/gl-customize.html), which took me a further ten minutes. Customising Greenlight is a potential rabbit hole; I probably spent around four hours on this.
 
 ## Firewall
 
