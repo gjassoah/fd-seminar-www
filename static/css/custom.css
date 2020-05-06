@@ -89,11 +89,11 @@ div.sidebar::after {
 
 /* upcoming talk - start */
 
-.upcoming-talk {
+.upcoming-talk, .future-talks {
     display: block;
 }
 
-.upcoming-talk h3 {
+.upcoming-talk h3, .future-talks h3 {
     color: #878787;
 }
 
@@ -110,6 +110,9 @@ div.abstract {
     margin-bottom: 2.5rem;
 }
 
+div.future-talks {
+    margin-top: 2.5rem;
+}
 /* upcoming talk - end */
 
 /* extra info - start */

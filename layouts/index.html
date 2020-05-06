@@ -4,10 +4,11 @@
 
 {{ define "content" }}
 {{ partial "announcements.html" . }}
-{{ $pages := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
-{{ range first 1 $pages.Pages }}
+
+{{ $pages := .Paginate (where (where site.RegularPages "Type" "talks").ByDate ".Date" ">" now) }}
 <div class="upcoming-talk">
-    <h3>Upcoming talk</h3>
+    <h3>Next talk</h3>
+    {{ range first 1 $pages.Pages }}
     <div>
         <h1>{{ .Title }}</h1>
     </div>
@@ -30,12 +31,44 @@
     <div class="abstract">
         {{ .Content }}
     </div>
+    {{ end }}
 </div>
-{{ end }}
+
 {{ partial "about-info.html" . }}
 {{ partial "archive-info.html" . }}
 {{ partial "bbb-info.html" . }}
 {{ partial "mailinglist-info.html" . }}
+
+<div class="future-talks">
+    <h3>Upcoming talks</h3>
+    {{ range after 1 $pages.Pages }}
+    <div>
+        <h1>{{ .Title }}</h1>
+    </div>
+    <div class="post__meta">
+        <div>
+            <i class="fas fa-user"></i> <a href="{{ .Params.speaker.Homepage }}">{{ .Params.speaker.Name }}</a>
+        </div>
+        {{ if .Params.speaker.affiliation }}
+        <div>
+            <i class="fas fa-university"></i> {{ .Params.speaker.Affiliation }}
+        </div>
+        {{ end }}
+        <div>
+            <i class="fas fa-calendar-alt"></i>
+            <script>
+             document.write(moment.utc({{ .Date }}).local().format('llll'));
+            </script>
+        </div>
+    </div>
+    {{ with .Content }}
+    <div class="abstract">
+        {{ . }}
+    </div>
+    {{ end }}
+    {{ end }}
+</div>
+
 {{ end }}
 
 {{ define "footer" }}
