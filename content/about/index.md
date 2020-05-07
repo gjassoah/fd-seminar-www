@@ -28,6 +28,8 @@ We recommend that you create an account in [our BigBlueButton instance](https://
 
 In addition, BigBlueButton provides the usual web-conferencing functionalities: public and private chat, screen sharing, polling, status icons, etc. We recommend you to watch some of the [video tutorials](https://bigbluebutton.org/html5/) for more details.
 
+When submitting your abstract, please include a list of up to five keywords; these will help us improve the results of our search function in the long term. Mathematical symbols are rendered using $\KaTeX$; see [here](https://katex.org/docs/supported.html) for the list of available $\TeX$ functions.
+
 ### Recordings 
 
 By default, talks will not be recorded. If you are interested in your talk being recorded please let us know in advance so we can inform the participants of this through our mailing list. The recording will then be hosted in our BigBlueButton instance, where it can be viewed by any registered user. As a speaker, you retain ownership of the recording and can request its removal from our server at any point (we are also happy to provide you with a copy of the recording).
