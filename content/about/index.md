@@ -28,7 +28,7 @@ We recommend that you create an account in [our BigBlueButton instance](https://
 
 In addition, BigBlueButton provides the usual web-conferencing functionalities: public and private chat, screen sharing, polling, status icons, etc. We recommend you to watch some of the [video tutorials](https://bigbluebutton.org/html5/) for more details.
 
-When submitting your abstract, please include a list of up to five keywords; these will help us improve the results of our search function in the long term. Mathematical symbols are rendered using $\KaTeX$; see [here](https://katex.org/docs/supported.html) for the list of available $\TeX$ functions.
+When submitting your abstract, please include a list of up to five keywords; these will help us improve the results of our search function in the long term. Mathematical symbols are rendered using \KaTeX; see [here](https://katex.org/docs/supported.html) for the list of available \TeX functions.
 
 ### Recordings 
 
