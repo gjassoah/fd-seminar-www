@@ -8,7 +8,7 @@ type = "about"
 
 The FD Seminar is a weekly online seminar on representation theory of quivers and finite-dimensional algebras. The seminar aims to become a virtual meeting space for representation-theorists worldwide (transcending the COVID-19 crisis which catalysed its inception), and wishes also to provide an international forum for researchers who may otherwise not have access to such. 
 
-The seminar takes place every Thursday at 11:00 UTC (times are displayed in your local timezone elsewhere in the website), and will be suspended during certain holidays and to prevent clashes with important events in the field (e.g. the ICRA). These suspensions will be announced in this website and through [our mailing list](https://listen.uni-bonn.de/wws/info/fd-seminar).
+The seminar takes place every Thursday at 12:00 UTC (times are displayed in your local timezone elsewhere in the website), and will be suspended during certain holidays and to prevent clashes with important events in the field (e.g. the ICRA). These suspensions will be announced in this website and through [our mailing list](https://listen.uni-bonn.de/wws/info/fd-seminar).
 
 The seminar is organised by
 
@@ -31,8 +31,12 @@ We recommend that you create an account in [our BigBlueButton instance](https://
 
 In addition, BigBlueButton provides the usual web-conferencing functionalities: public and private chat, screen sharing, polling, status icons, etc. We recommend you to watch some of the [video tutorials](https://bigbluebutton.org/html5/) for more details.
 
-When submitting your abstract, please include a list of up to five keywords; these will help us improve the results of our search function in the long term. Mathematical symbols are rendered using $\KaTeX$; see [here](https://katex.org/docs/supported.html) for the list of available $$\TeX$$ functions. 
-
+When submitting your abstract, please include a list of up to five keywords; these will help us improve the results of our search function in the long term. Mathematical symbols are rendered using \\(\KaTeX\\); see [here](https://katex.org/docs/supported.html) for the list of available \\(\TeX\\) functions. For example,
+```
+\\[ \operatorname{Ext}_A^1(M,N)\cong D\operatorname{\underline{Hom}}_A(\tau^{-1}N,M)\cong D\operatorname{\overline{Hom}}_A(N,\tau M) \\]
+```
+is displayed as \\[ \operatorname{Ext}_A^1(M,N)\cong D\operatorname{\underline{Hom}}_A(\tau^{-1}N,M)\cong D\operatorname{\overline{Hom}}_A(N,\tau M), \\]
+while `\\( \operatorname{mod}A \\)` will be rendered inline as \\(\operatorname{mod}A\\) (note the double backslashes).
 ### Recordings 
 
 By default, talks will not be recorded. If you are interested in your talk being recorded please let us know in advance so we can inform the participants of this through our mailing list. The recording will then be hosted in our BigBlueButton instance, where it can be viewed by any registered user. As a speaker, you retain ownership of the recording and can request its removal from our server at any point (we are also happy to provide you with a copy of the recording).

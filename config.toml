@@ -15,6 +15,7 @@ buildFuture = true
   bbbURL = "https://bbb.fd-seminar.xyz"
   mailinglistURL = "https://listen.uni-bonn.de/wws/info/fd-seminar"
   toc = "hugo"
+  markup = "mmark"
 
 [[menu.main]]
   name = "Home"
