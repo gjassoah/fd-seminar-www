@@ -13,7 +13,7 @@ buildFuture = true
   relatedPosts = true
   mainSections = ["talks"]
   bbbURL = "https://bbb.fd-seminar.xyz"
-  mailinglistURL = "/"
+  mailinglistURL = "https://listen.uni-bonn.de/wws/info/fd-seminar"
   toc = "hugo"
 
 [[menu.main]]
@@ -30,7 +30,7 @@ buildFuture = true
 [[menu.main]]
   name = "Mailing list"
   identifier = "mailinglist"
-  url = "/"
+  url = "https://listen.uni-bonn.de/wws/info/fd-seminar"
 
 [related]
 
