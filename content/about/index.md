@@ -12,9 +12,12 @@ The seminar takes place every Thursday at 11:00 UTC (times are displayed in your
 
 The seminar is organised by
 
+- [Eleonore Faber](http://www1.maths.leeds.ac.uk/~pmtemf/) (Leeds)
 - [Gustavo Jasso](http://www.math.uni-bonn.de/~schroer/) (Bonn)
+- [Ryan Kinser](https://homepage.math.uiowa.edu/~rkinser/) (Iowa)
 - [Julian Külshammer](https://katalog.uu.se/profile/?id=N18-1115) (Uppsala)
-- etc.
+- [Rosanna Laking](http://profs.scienze.univr.it/laking/) (Verona)
+- [Alexandra Zvonareva](https://www.iaz.uni-stuttgart.de/institut/team/Zvonareva-00001/) (Stuttgart)
 
 Please send your comments and suggestions (including suggestions of potential speakers) by e-mail to [organisers@fd-seminar.xyz](mailto:organisers@fd-seminar.xyz).
 
@@ -28,7 +31,7 @@ We recommend that you create an account in [our BigBlueButton instance](https://
 
 In addition, BigBlueButton provides the usual web-conferencing functionalities: public and private chat, screen sharing, polling, status icons, etc. We recommend you to watch some of the [video tutorials](https://bigbluebutton.org/html5/) for more details.
 
-When submitting your abstract, please include a list of up to five keywords; these will help us improve the results of our search function in the long term. Mathematical symbols are rendered using \KaTeX; see [here](https://katex.org/docs/supported.html) for the list of available \TeX functions.
+When submitting your abstract, please include a list of up to five keywords; these will help us improve the results of our search function in the long term. Mathematical symbols are rendered using $\KaTeX$; see [here](https://katex.org/docs/supported.html) for the list of available $$\TeX$$ functions. 
 
 ### Recordings 
 
