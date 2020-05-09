@@ -33,9 +33,9 @@ In addition, BigBlueButton provides the usual web-conferencing functionalities: 
 
 When submitting your abstract, please include a list of up to five keywords; these will help us improve the results of our search function in the long term. Mathematical symbols are rendered using \\(\KaTeX\\); see [here](https://katex.org/docs/supported.html) for the list of available \\(\TeX\\) functions. For example,
 ```
-\\[ \operatorname{Ext}_A^1(M,N)\cong D\operatorname{\underline{Hom}}_A(\tau^{-1}N,M)\cong D\operatorname{\overline{Hom}}_A(N,\tau M) \\]
+\\[ \operatorname{Ext}_A^1(M,N)\cong D\operatorname{\overline{Hom}}_A(N,\tau M) \\]
 ```
-is displayed as \\[ \operatorname{Ext}_A^1(M,N)\cong D\operatorname{\underline{Hom}}_A(\tau^{-1}N,M)\cong D\operatorname{\overline{Hom}}_A(N,\tau M), \\]
+is displayed as \\[ \operatorname{Ext}_A^1(M,N)\cong D\operatorname{\overline{Hom}}_A(N,\tau M), \\]
 while `\\( \operatorname{mod}A \\)` will be rendered inline as \\(\operatorname{mod}A\\) (note the double backslashes).
 ### Recordings 
 
