@@ -59,6 +59,8 @@ Currently, our server is located in Frankfurt, Germany and is rented from the cl
 * The password you use to create your account; for your own protection, we strongly recommend that you use a new password for your account.
 * The name you enter when creating your account.
 
+We have made slight modifications to the web interface to our BigBlueButton instance; the source code is available [here](https://git.sr.ht/~gjasso/fd-seminar-greenlight).
+
 Our SSL/TLS certificates (needed for encrypting the traffic through our website and BigBlueButton instance) are provided by [Let's Encrypt](https://letsencrypt.org).
 
 {{< note >}}If you are interested in how we set-up our server, click [here](/diy).{{< /note >}}
@@ -66,3 +68,6 @@ Our SSL/TLS certificates (needed for encrypting the traffic through our website 
 ### Website
 
 Our website is built with [Hugo](https://gohugo.io/), an open-source static website generator; it uses a modified version of the [Hyde-Hyde theme](https://themes.gohugo.io/hyde-hyde/) by [htr3n](https://htr3n.github.io/) as well as [Google Fonts](https://fonts.google.com/). We use JavaScript for [displaying times in your local timezone](https://momentjs.com/), [rendering mathematical formulae](https://katex.org/), and [searching the talk archive](https://fusejs.io/).
+
+The source code for the website is available [here](https://git.sr.ht/~gjasso/fd-seminar-www).
+
