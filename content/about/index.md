@@ -8,7 +8,7 @@ type = "about"
 
 The FD Seminar is a weekly online seminar on representation theory of quivers and finite-dimensional algebras. The seminar aims to become a virtual meeting space for representation-theorists worldwide (transcending the COVID-19 crisis which catalysed its inception), and wishes also to provide an international forum for researchers who may otherwise not have access to such. 
 
-The seminar takes place every Thursday at 12:00 UTC (times are displayed in your local timezone elsewhere in the website), and will be suspended during certain holidays and to prevent clashes with important events in the field (e.g. the ICRA). These suspensions will be announced in this website and through [our mailing list](https://listen.uni-bonn.de/wws/info/fd-seminar).
+The seminar takes place every Thursday at 13:00 UTC (times are displayed in your local timezone elsewhere in the website), and will be suspended during certain holidays and to prevent clashes with important events in the field (e.g. the ICRA). These suspensions will be announced in this website and through [our mailing list](https://listen.uni-bonn.de/wws/info/fd-seminar).
 
 The seminar is organised by
 
