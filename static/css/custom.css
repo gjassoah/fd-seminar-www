@@ -97,13 +97,12 @@ div.sidebar::after {
     color: #878787;
 }
 
-h3 {
-    margin-bottom: 1rem;
+a.future-talk-link {
+    color: unset;
 }
 
-div.abstract p::before {
-    content: "Abstract. ";
-    font-weight: bold;
+h3 {
+    margin-bottom: 1rem;
 }
 
 div.abstract {

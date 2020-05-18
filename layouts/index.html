@@ -41,9 +41,10 @@
 
 <div class="future-talks">
     <h3>Upcoming talks</h3>
+    Click on the title to see the abstract.
     {{ range after 1 $pages.Pages }}
     <div>
-        <h1>{{ .Title }}</h1>
+        <h1><a href="{{ .Permalink }}" class="future-talk-link">{{ .Title }}</a></h1>
     </div>
     <div class="post__meta">
         <div>
@@ -61,11 +62,6 @@
             </script>
         </div>
     </div>
-    {{ with .Content }}
-    <div class="abstract">
-        {{ . }}
-    </div>
-    {{ end }}
     {{ end }}
 </div>
 
