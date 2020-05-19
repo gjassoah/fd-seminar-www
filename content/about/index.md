@@ -25,6 +25,8 @@ Please send your comments and suggestions (including suggestions of potential sp
 
 The FD Seminar runs on [BigBlueButton](https://bigbluebutton.org/), an open-source web conferencing system. Although you do not need to register to attend talks in the seminar, creating an account in [our BigBlueButton instance](https://bbb.fd-seminar.xyz) will allow you to watch the recordings of previous talks. If you do not wish to create an account, you will need to [subscribe to our mailing list](https://listen.uni-bonn.de/wws/info/fd-seminar) where the password for the upcoming talk will be distributed. We will also use the mailing list to inform you if the upcoming speaker wishes to have their talk recorded; please take this into consideration when deciding to attend the talk.
 
+If you experience problems registering, please read the troubleshooting information [below](/about/#troubleshooting).
+
 ## Information for speakers
 
 We recommend that you create an account in [our BigBlueButton instance](https://bbb.fd-seminar.xyz). Please inform us after you do so; we will then give your account the role of 'speaker' so you can test-drive the software before your talk. During your talk you will be able to upload a PDF file which will be shown in the participants' screens (for example, a LaTeX beamer presentation). This is much less resource-intensive than sharing your screen with the PDF file open in your own computer. BigBlueButton provides basic annotation functionalities which we encourage you to experiment with before your talk. We also suggest that you allow us to make your PDF file available for download as it will be helpful for participants to have access to it in a different application during your talk; this can be done directly through BigBlueButton during the talk.
@@ -44,6 +46,15 @@ By default, talks will not be recorded. If you are interested in your talk being
 Thank you for contributing to the FD Seminar!
 
 ## Technical information
+
+### Troubleshooting
+
+Some participants have reported some issues registering in our BigBlueButton instance:
+
+* Missing e-mail verification messages, possibly due to aggressive spam filters put in place by some institutions. Some users have received the e-mail verification message only after a couple of days, possibly because the message had been quarantined.
+* Some users received an error (404) after clicking on the verification link. This is probably due to some anti-phishing system pre-loading the e-mail verification page. You can try to sign in since your e-mail address was probably verified successfully (despite the error).
+
+Please write to [admin@fd-seminar.xyz](mailto:admin@fd-seminar.xyz) if you have any problems registering. We apologise for any inconveniences.
 
 ### Mailing list
 
