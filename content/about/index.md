@@ -86,3 +86,4 @@ Our website is built with [Hugo](https://gohugo.io/), an open-source static webs
 
 The source code for the website is available [here](https://git.sr.ht/~gjasso/fd-seminar-www).
 
+The website if hosted by the German internet hosting company [Hetzner](https://www.hetzner.com/); the server is located in Falkenstein, Germany.
