@@ -20,7 +20,7 @@ Happy hacking!
 Gustavo
 
 {{< warning >}}
-I am not an expert in systems administration (not even close). The steps below are provided for reference only and under no warranty of applicability or suitability. Follow them at your own risk!
+I am not an expert in server administration (not even close). The steps below are provided for reference only and under no warranty of applicability or suitability. Follow them at your own risk!
 {{< /warning >}}
 
 ## BigBlueButton
