@@ -43,7 +43,7 @@ while `\\( \operatorname{mod}A \\)` will be rendered inline as \\(\operatorname{
 
 By default, talks will not be recorded. If you are interested in your talk being recorded please let us know in advance so we can inform the participants of this through our mailing list. The recording will then be hosted in our BigBlueButton instance, where it can be viewed by any registered user. As a speaker, you retain ownership of the recording and can request its removal from our server at any point.
 
-We are also happy to provide you with a recording of your talk. Due to technical limitations, it is not possible to download recordings from BigBlueButton; a second recording will be produced with [OBS Studio](https://obsproject.com/).
+We are also happy to provide you with a recording of your talk. Due to technical limitations, it is not possible to download recordings from BigBlueButton; a second recording will be produced with [OBS Studio](https://obsproject.com/) for this purpose.
 
 Thank you for contributing to the FD Seminar!
 
