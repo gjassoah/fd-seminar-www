@@ -3,15 +3,16 @@ title = "DIY BigBlueButton Server"
 type = "about"
 +++
 {{< note >}}
-**Last update:** 02.05.2020
+**Last update:** 21.05.2020
 {{< /note >}}
 
 # DIY BigBlueButton Server
 
-During the talks, the FD Serminar runs on a _dedicated_ server with the following specifications:
+During the talks, the FD Serminar runs on a server with the following specifications:
 
-* **CPU:**
-* **Memory:**
+{{< server >}}{{< /server >}}
+
+[![21.05.2020](/img/grafana-21.05.2020.png)](/img/grafana-21.05.2020.png)
 
 For those who might be interested, below are the steps I followed to set it up. Although the main part took only one afternoon, one does need to be comfortable managing a GNU+Linux system and mildly familiar with maintaining a server.
 
