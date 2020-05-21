@@ -99,6 +99,7 @@ div.sidebar::after {
 
 a.future-talk-link {
     color: unset;
+    font-size: 1.5rem;
 }
 
 h3 {
