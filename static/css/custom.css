@@ -160,6 +160,7 @@ ul.posts li::after, ul.related-posts li::after {
 .post__meta {
     display: block;
     font-size: 1rem;
+    font-weight: unset;
 }
 
 .post__meta svg.svg-inline--fa {
