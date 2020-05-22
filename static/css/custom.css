@@ -229,12 +229,9 @@ div.post__related {
 }
 
 #speakers-map {
-    width: 80%;
+    width: 100%;
     height: 16rem;
     margin-top: 1rem;
-    margin-left: auto
-;
-    margin-right: auto;
     border-radius: 5px;
     -webkit-box-shadow: 0.25rem 0.25rem 0.25rem 0 #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
     -moz-box-shadow:    0.25rem 0.25rem 0.25rem 0 #ccc;  /* Firefox 3.5 - 3.6 */
