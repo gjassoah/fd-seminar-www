@@ -1,0 +1,11 @@
+<span class="section__title">{{ .Title }}</span>
+
+{{ with .Data.Pages }}
+{{ partial "speakers-map.html" . }}
+{{ end }}
+
+<ul class="posts">
+    {{ with .Data.Pages }}
+    {{ partial "posts-list.html" . }}
+    {{ end }}
+</ul>
