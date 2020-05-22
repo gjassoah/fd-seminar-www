@@ -23,9 +23,11 @@ Please send your comments and suggestions (including suggestions of potential sp
 
 ## Information for participants
 
-The FD Seminar runs on [BigBlueButton](https://bigbluebutton.org/), an open-source web conferencing system. Although you do not need to register to attend talks in the seminar, creating an account in [our BigBlueButton instance](https://bbb.fd-seminar.xyz) will allow you to watch the recordings of previous talks. If you do not wish to create an account, you will need to [subscribe to our mailing list](https://listen.uni-bonn.de/wws/info/fd-seminar) where the password for the upcoming talk will be distributed. We will also use the mailing list to inform you if the upcoming speaker wishes to have their talk recorded; please take this into consideration when deciding to attend the talk.
+The FD Seminar runs on [BigBlueButton](https://bigbluebutton.org/), an open-source web conferencing system.  The simplest way to join the talks is using the direct link and access code which are distributed through [our mailing list](https://listen.uni-bonn.de/wws/info/fd-seminar).
 
-If you experience problems registering, please read the troubleshooting information [below](/about/#troubleshooting).
+Although you do not need to register to attend talks in the seminar, creating an account in [our BigBlueButton instance](https://bbb.fd-seminar.xyz) will allow you to watch the recordings of previous talks. We will also use the mailing list to inform you if the upcoming speaker wishes to have their talk recorded; please take this into consideration when deciding to attend the talk.
+
+If you experience problems registering or using BigBlueButton, please read the troubleshooting information [below](/about/#troubleshooting).
 
 {{< note >}}We **strongly recommend** to use [Google Chrome](https://www.google.com/chrome/)/Chromium or [Firefox](https://www.mozilla.org/en-US/firefox/new/) when joining the FD Seminar via BigBlueButton; other browsers (such as Safari or Internet Explorer) are not supported and may experience unexpected technical issues.{{< /note >}}
 
@@ -53,12 +55,34 @@ Thank you for contributing to the FD Seminar!
 
 ### Troubleshooting
 
+#### Problems registering
+
+{{< note >}}
+In case you cannot log in to your BigBlueButton account (e.g. because you did not receive the e-mail verification message), **you can simply join the talk with the direct link and access code** which is distributed through our mailing list.
+{{< /note >}}
+
 Some participants have reported some issues registering in our BigBlueButton instance:
 
 * Missing e-mail verification messages, possibly due to aggressive spam filters put in place by some institutions. Some users have received the e-mail verification message only after a couple of days, possibly because the message had been quarantined.
 * Some users received an error (404) after clicking on the verification link. This is probably due to some anti-phishing system pre-loading the e-mail verification page. You can try to sign in since your e-mail address was probably verified successfully (despite the error).
 
 Please write to [admin@fd-seminar.xyz](mailto:admin@fd-seminar.xyz) if you have any problems registering. We apologise for any inconveniences.
+
+#### Joining the audio session
+
+The user experience when joining BigBlueButton can be confusing. After entering the FD Seminar room, you will be presented with the following choice:
+
+![Joining the audio session](/img/joining_the_audio_session.png)
+
+If you select **Microphone**, BigBlueButton will run an echo test on your microphone and you will then enter the session with your microphone enabled (but muted by default).
+
+If you select **Listen only** you will enter the session with the microphone _disabled_ and you will not be able to unmute yourself to ask a question. You can re-join the audio session by clicking on the 'Leave audio' button (coloured blue and marked with headphones):
+
+![Leave audio](/img/leave_audio.png)
+
+You can then click on the 'Join audio' button (marked with a crossed-out phone) and select to join the session by by **Microphone**:
+
+![Join audio](/img/join_audio.png)
 
 ### Mailing list
 

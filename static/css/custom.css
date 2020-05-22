@@ -219,3 +219,8 @@ div.post__related {
 .contents {
     margin-bottom: 0;
 }
+
+img {
+    margin-left: auto;
+    margin-right: auto;
+}
