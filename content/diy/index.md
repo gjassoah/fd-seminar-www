@@ -28,6 +28,10 @@ I am not an expert in server administration (not even close). The steps below ar
 
 The FD Seminar itself runs on [BigBlueButton (BBB)](https://bigbluebutton.org/), an open-source web conferencing software. I installed it following the [BBB official installation guide](https://docs.bigbluebutton.org/2.2/install.html) and it took me around one hour.
 
+### TURN Server
+
+Some users experienced problems when trying to join audio sessions in our BigBlueButton instance (error 1007); this is likely due to users attempting to connect behind a firewall. I followed the [BBB official guide for setting up a TURN server](https://docs.bigbluebutton.org/2.2/setup-turn-server.html) in an attempt to fix this (it remains to be seen if this solves our users' issues). The installation took around 30 minutes.
+
 ## Greenlight
 
 You need to install one more piece of software, called [Greenlight](https://docs.bigbluebutton.org/greenlight/gl-overview.html), which serves as a front-end to your BBB server; with it you can manage BBB's users, rooms, and recordings. I installed it following the [Greenlight official installation guide](https://docs.bigbluebutton.org/greenlight/gl-install.html) and it took me about half an hour. I needed to customise Greenlight to fit our needs; for this I followed the [Greenlight official customisation guide](https://docs.bigbluebutton.org/greenlight/gl-customize.html), which took me a further ten minutes. Customising Greenlight is a potential rabbit hole; I probably spent around four hours on this.

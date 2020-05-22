@@ -70,6 +70,10 @@ Please write to [admin@fd-seminar.xyz](mailto:admin@fd-seminar.xyz) if you have 
 
 #### Joining the audio session
 
+{{< note >}}
+Some users reported an **error (1007)** when trying to join the audio session (and thus they could not hear anything). We have implemented a technical fix to address this issue; please do not hesitate in contacting us if you experience this problem.
+{{< /note >}}
+
 The user experience when joining BigBlueButton can be confusing. After entering the FD Seminar room, you will be presented with the following choice:
 
 ![Joining the audio session](/img/joining_the_audio_session.png)
