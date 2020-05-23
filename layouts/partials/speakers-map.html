@@ -19,7 +19,9 @@
 		 tileSize: 512,
 		 zoomOffset: -1
  }).addTo(mymap);
- {{ range . }}
- L.marker([{{ .Params.speaker.Latitude }}, {{ .Params.speaker.Longitude }}]).addTo(mymap).bindPopup("<a href='{{ .RelPermalink }}'>{{ .Params.speaker.Name }}</a>").closePopup();
+ {{ $talks := where site.Pages "Section" "talks" }}
+ {{ range $talks.GroupByParam "affiliation" }}
+ L.marker([{{ range first 1 .Pages }}{{ .Params.Latitude }}, {{ .Params.Longitude }}{{ end }}]).addTo(mymap).bindPopup("{{ range first 1 .Pages }}{{ .Params.Affiliation }}{{ end }}{{ range .Pages }}<a href='{{ .RelPermalink }}' style='display: block;'>{{ .Params.speaker.Name }}</a>{{ end }}").closePopup();
  {{ end }}
 </script>
+
