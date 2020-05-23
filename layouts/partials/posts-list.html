@@ -6,7 +6,7 @@
         {{end}} <a href="{{ .RelPermalink }}" {{if .Draft}}class="draft"{{end}}>{{ .Title }}</a>
     </span>
     <span style="display: block;">
-        {{ .Params.speaker.Name }} ({{ .Params.speaker.Affiliation }})
+        {{ .Params.speaker.Name }} ({{ .Params.Affiliation }}, {{ .Params.Location }})
     </span>
 </li>
 {{ end }}

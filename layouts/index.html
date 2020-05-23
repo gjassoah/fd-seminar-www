@@ -16,9 +16,9 @@
     <div>
         <i class="fas fa-user"></i> <a href="{{ .Params.speaker.Homepage }}">{{ .Params.speaker.Name }}</a>
     </div>
-    {{ if .Params.speaker.affiliation }}
+    {{ if .Params.Affiliation }}
     <div>
-        <i class="fas fa-university"></i> {{ .Params.speaker.Affiliation }}
+        <i class="fas fa-university"></i> {{ .Params.Affiliation }}, {{ .Params.Location }}
     </div>
     {{ end }}
     <div>
@@ -51,9 +51,9 @@
         <div>
             <i class="fas fa-user"></i> <a href="{{ .Params.speaker.Homepage }}">{{ .Params.speaker.Name }}</a>
         </div>
-        {{ if .Params.speaker.affiliation }}
+        {{ if .Params.Affiliation }}
         <div>
-            <i class="fas fa-university"></i> {{ .Params.speaker.Affiliation }}
+            <i class="fas fa-university"></i> {{ .Params.Affiliation }}, {{ .Params.Location }}
         </div>
         {{ end }}
         <div>

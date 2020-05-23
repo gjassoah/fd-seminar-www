@@ -1,13 +1,13 @@
 {{ if ne .Params.showpagemeta false }}
 <div class="post__meta">
-    {{ if .Params.speaker.affiliation }}
     <div class="post__meta-item">
         <i class="fas fa-user"></i> <a href="{{ .Params.speaker.Homepage }}">{{ .Params.speaker.Name }}</a>
     </div>
-    {{ end }}
+    {{ if .Params.Affiliation }}
     <div class="post__meta-item">
-        <i class="fas fa-university"></i> {{ .Params.speaker.Affiliation }}
+        <i class="fas fa-university"></i> {{ .Params.Affiliation }}, {{ .Params.Location }}
     </div>
+    {{ end }}
     <!-- published date -->
     {{ if not .Date.IsZero }}
     <i class="fas fa-calendar-alt"></i>
