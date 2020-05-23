@@ -63,7 +63,16 @@ In case you cannot log in to your BigBlueButton account (e.g. because you did no
 
 Some participants have reported some issues registering in our BigBlueButton instance:
 
-* Missing e-mail verification messages, possibly due to aggressive spam filters put in place by some institutions. Some users have received the e-mail verification message only after a couple of days, possibly because the message had been quarantined.
+* Missing e-mail verification messages, possibly due to aggressive spam filters put in place by some institutions (in one case the message was flatly rejected). Some users have received the e-mail verification message only after a couple of days, possibly because the message had been quarantined.
+
+  In this case you have the following options:
+  
+  * Create an account using a different e-mail address; please [contact us](mailto:admin@fd-seminar.xyz) in case you think we will not recognise your address. 
+  
+  * Contact the IT department at your institution and ask them to whitelist our domain name (fd-seminar.xyz) so that out e-mails no longer go to the spam/quarantine folder.
+
+  Note that, unless you need to reset your password, the verification e-mail is the only important message that you will receive from our BigBlueButton instance. The weekly announcement are sent through our mailing list which is hosted at the University of Bonn (so hopefully these will not go to your spam folder).
+
 * Some users received an error (404) after clicking on the verification link. This is probably due to some anti-phishing system pre-loading the e-mail verification page. You can try to sign in since your e-mail address was probably verified successfully (despite the error).
 
 Please write to [admin@fd-seminar.xyz](mailto:admin@fd-seminar.xyz) if you have any problems registering. We apologise for any inconveniences.
@@ -74,7 +83,7 @@ Please write to [admin@fd-seminar.xyz](mailto:admin@fd-seminar.xyz) if you have 
 Some users reported an **error (1007)** when trying to join the audio session (and thus they could not hear anything). We have implemented a technical fix to address this issue; please do not hesitate in contacting us if you experience this problem.
 {{< /note >}}
 
-The user experience when joining BigBlueButton can be confusing. After entering the FD Seminar room, you will be presented with the following choice:
+The user experience when joining a BigBlueButton session can be confusing. After entering the FD Seminar room you will be presented with the following choice:
 
 ![Joining the audio session](/img/joining_the_audio_session.png)
 
