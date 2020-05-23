@@ -237,3 +237,8 @@ div.post__related {
     -moz-box-shadow:    0.25rem 0.25rem 0.25rem 0 #ccc;  /* Firefox 3.5 - 3.6 */
     box-shadow:         0.25rem 0.25rem 0.25rem 0 #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
 }
+
+#link-to-fd-seminar-room {
+    margin-top: 0;
+    margin-bottom: 2.75rem;
+}
