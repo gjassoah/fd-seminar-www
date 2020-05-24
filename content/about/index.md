@@ -73,7 +73,7 @@ Some participants have reported some issues registering in our BigBlueButton ins
 
 * Some users received an error (404) after clicking on the verification link. This is probably due to some anti-phishing system pre-loading the e-mail verification page. You can try to sign in since your e-mail address was probably verified successfully (despite the error).
 
-* Some users reported not being able to click the 'Verify Account' button in the e-mail verification message (clicking on the button had no discernible effect). Again, this is possibly due to an anti-phishing mechanism preventing users from clicking on suspicious links. You can circumvent this protection by right-clicking on the button and selecting the option 'Copy link'; you can then paste the link in the address bar in your web browser and verify your account.
+* Some users reported not being able to click the 'Verify Account' button in the e-mail verification message (clicking on the button had no discernible effect). Again, this is possibly due to an anti-phishing mechanism preventing users from clicking on suspicious links. You can circumvent this protection by __right-clicking_ on the 'Verify account' button and selecting the option 'Copy link'; you can then paste the link in the address bar in your web browser and verify your account.
 
 Note that, unless you need to reset your password, the verification e-mail is the only important message that you will receive from our BigBlueButton instance. The weekly announcement are sent through our mailing list which is hosted at the University of Bonn (so hopefully these will not go to your spam folder).
 
