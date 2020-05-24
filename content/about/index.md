@@ -99,6 +99,8 @@ You can then click on the 'Join audio' button (marked with a crossed-out phone) 
 
 ![Join audio](/img/join_audio.png)
 
+Alternatively, you can reload the page in your web browser and select to join the audio session by **Microphone**.
+
 ### Mailing list
 
 Our mailing list is hosted at the [Hochschulrechenzentrum der Universität Bonn](http://www.hrz.uni-bonn.de/). To prevent [Zoombombing](https://en.wikipedia.org/wiki/Zoombombing) all registrations must be approved manually by an administrator. We ask you to use the name you normally use to identify yourself within our community as well as as your institutional email address; if you do not have one, please write to [admin@fd-seminar.xyz](mailto:admin@fd-seminar.xyz). Thank you for your understanding.
