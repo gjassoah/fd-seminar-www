@@ -239,7 +239,7 @@ div.post__related {
 }
 
 #link-to-fd-seminar-room a {
-    margin-top: 0;
+    margin-top: -1rem;
     margin-bottom: 2.75rem;
     text-transform: unset;
 }
