@@ -26,9 +26,9 @@ I am not an expert in server administration (not even close). The steps below ar
 
 The FD Seminar itself runs on [BigBlueButton (BBB)](https://bigbluebutton.org/), an open-source web conferencing software. I installed it following the [BBB official installation guide](https://docs.bigbluebutton.org/2.2/install.html) and it took me around one hour.
 
-### TURN Server
+### TURN server
 
-Some users experienced problems when trying to join audio sessions in our BigBlueButton instance (error 1007); this is likely due to users attempting to connect behind a firewall. I followed the [BBB official guide for setting up a TURN server](https://docs.bigbluebutton.org/2.2/setup-turn-server.html) in an attempt to fix this (it remains to be seen if this solves our users' issues). The installation took around 30 minutes.
+Some users experienced problems when trying to join audio sessions in our BigBlueButton instance (error 1007); this is likely due to users attempting to connect behind a firewall. I followed the [BBB official guide for setting up a TURN server](https://docs.bigbluebutton.org/2.2/setup-turn-server.html) in an attempt to fix this (~~it remains to be seen if this solves our users' issues~~ this solved our users' issues). The installation took around 30 minutes.
 
 These are the specifications of our TURN server:
 
