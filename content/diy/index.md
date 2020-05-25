@@ -10,11 +10,9 @@ type = "about"
 
 During the talks, the FD Serminar runs on a server with the following specifications:
 
-{{< server >}}{{< /server >}}
+{{< server product="Hetzner CCX41" os="Ubuntu 16.04 (Linux 4.4.0-178-generic)" cpu="AMD EPYC Processor (16 dedicated vCPUs)" ram="64 GB RAM / 8 GB Swap" >}}{{< /server >}}
 
-[![21.05.2020](/img/grafana-21.05.2020.png)](/img/grafana-21.05.2020.png)
-
-For those who might be interested, below are the steps I followed to set it up. Although the main part took only one afternoon, one does need to be comfortable managing a GNU+Linux system and mildly familiar with maintaining a server.
+For those who might be interested, below are the steps I followed to set up our BigBlueButton instance. Although the main part took only one afternoon, one does need to be comfortable managing a GNU+Linux system and mildly familiar with maintaining a server.
 
 Happy hacking!
 
@@ -32,6 +30,8 @@ The FD Seminar itself runs on [BigBlueButton (BBB)](https://bigbluebutton.org/),
 
 Some users experienced problems when trying to join audio sessions in our BigBlueButton instance (error 1007); this is likely due to users attempting to connect behind a firewall. I followed the [BBB official guide for setting up a TURN server](https://docs.bigbluebutton.org/2.2/setup-turn-server.html) in an attempt to fix this (it remains to be seen if this solves our users' issues). The installation took around 30 minutes.
 
+{{< server product="Hetzner CPX11" os="Ubuntu 18.04.4 (Linux 4.15.0-99-generic)" cpu="AMD EPYC Processor (2 vCPUs)" ram="2 GB RAM / 2 GB Swap" >}}{{< /server >}}
+
 ## Greenlight
 
 You need to install one more piece of software, called [Greenlight](https://docs.bigbluebutton.org/greenlight/gl-overview.html), which serves as a front-end to your BBB server; with it you can manage BBB's users, rooms, and recordings. I installed it following the [Greenlight official installation guide](https://docs.bigbluebutton.org/greenlight/gl-install.html) and it took me about half an hour. I needed to customise Greenlight to fit our needs; for this I followed the [Greenlight official customisation guide](https://docs.bigbluebutton.org/greenlight/gl-customize.html), which took me a further ten minutes. Customising Greenlight is a potential rabbit hole; I probably spent around four hours on this.
@@ -43,3 +43,9 @@ I used [UFW](https://launchpad.net/ufw) to protect our server by allowing incomi
 ## Server monitoring
 
 We use [Grafana](https://grafana.com/) and [Prometheus](https://prometheus.io/) to monitor our BBB instance. For setting this up I used the following [docker container provided by a third-party developer](https://bigbluebutton-exporter.greenstatic.dev/installation/all_in_one_monitoring_stack/). The installation takes about 10 minutes.
+
+### 21.05.2020
+
+{{< server product="Linode Dedicated 16GB" os="Ubuntu 16.04 (Linux 4.4.0-179-generic)" cpu="AMD EPYC 7501 32-Core Processor (8 dedicated vCPUs)" ram="16 GB RAM / 10 GB Swap" >}}{{< /server >}}
+
+[![21.05.2020](/img/grafana-21.05.2020.png)](/img/grafana-21.05.2020.png)

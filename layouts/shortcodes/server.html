@@ -1,13 +1,17 @@
 <div class="server_info">
     <div class="server_info-icon"><i class="fas fa-server"></i></div>
-    <div class="server_info-text">Ubuntu 16.04 (Linux 4.4.0-179-generic)</div>
+    <div class="server_info-text">{{ .Get "product" }}</div>
+</div>
+<div class="server_info">
+    <div class="server_info-icon"><i class="fab fa-linux"></i></div>
+    <div class="server_info-text">{{ .Get "os" }}</div>
 </div>
 <div class="server_info">
     <div class="server_info-icon"><i class="fas fa-microchip"></i></div>
-    <div class="server_info-text">AMD EPYC 7501 32-Core Processor, 8 Cores (dedicated CPUs)</div>
+    <div class="server_info-text">{{ .Get "cpu" }}</div>
 </div>
 <div class="server_info">
     <div class="server_info-icon"><i class="fas fa-memory"></i></div>
-    <div class="server_info-text"> 16 GB RAM, 10 GB Swap</div>
+    <div class="server_info-text">{{ .Get "ram" }}</div>
 </div>
 {{ .Inner | markdownify }}
