@@ -30,6 +30,8 @@ The FD Seminar itself runs on [BigBlueButton (BBB)](https://bigbluebutton.org/),
 
 Some users experienced problems when trying to join audio sessions in our BigBlueButton instance (error 1007); this is likely due to users attempting to connect behind a firewall. I followed the [BBB official guide for setting up a TURN server](https://docs.bigbluebutton.org/2.2/setup-turn-server.html) in an attempt to fix this (it remains to be seen if this solves our users' issues). The installation took around 30 minutes.
 
+These are the specifications of our TURN server:
+
 {{< server product="Hetzner CPX11" os="Ubuntu 18.04.4 (Linux 4.15.0-99-generic)" cpu="AMD EPYC Processor (2 vCPUs)" ram="2 GB RAM / 2 GB Swap" >}}{{< /server >}}
 
 ## Greenlight
