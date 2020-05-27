@@ -1,0 +1,17 @@
+<div id="playerContainer"></div>
+<script src="https://cdn.jsdelivr.net/npm/indigo-player@1/lib/indigo-player.js"></script>
+<script>
+ const config = {
+     sources: [
+         {
+             type: 'dash',
+             src: 'https://stream.fd-seminar.xyz/obs.mpd',
+         }
+     ],
+ };
+
+ const element = document.getElementById('playerContainer');
+ const player = IndigoPlayer.init(element, config);
+
+ // You can use the player object now to access the player and it's methods (play, pause, ...)
+</script>
