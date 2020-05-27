@@ -6,12 +6,10 @@
 <div class="post">
     <h1>{{ .Title }}</h1>
     {{ partial "indigo-player.html" . }}
+    {{ .Content }}
 </div>
 {{ end }}
 
 {{ define "footer" }}
 {{ partial "footer/font-awesome-js.html" . }}
 {{ end }}
-
-
-
