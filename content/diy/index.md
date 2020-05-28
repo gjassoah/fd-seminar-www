@@ -10,7 +10,7 @@ type = "about"
 
 During the talks, the FD Serminar runs on a cloud server with the following specifications:
 
-{{< server product="Hetzner CCX41" os="Ubuntu 16.04 (Linux 4.4.0-178-generic)" cpu="AMD EPYC Processor (16 dedicated vCPUs)" ram="64 GB RAM / 8 GB Swap" >}}{{< /server >}}
+{{< server product="Hetzner CCX41" os="Ubuntu 16.04 (Linux 4.4.0-178-generic)" cpu="Intel Xeon Processor (Skylake, IBRS, 16 dedicated vCPUs)" ram="64 GB RAM / 8 GB Swap" >}}{{< /server >}}
 
 For those who might be interested, below are the steps I followed to set up our BigBlueButton instance. Although the main part took only one afternoon, one does need to be comfortable managing a GNU+Linux system and mildly familiar with maintaining a server.
 
@@ -36,7 +36,7 @@ Some users experienced problems when trying to join audio sessions in our BigBlu
 
 These are the specifications of our TURN server:
 
-{{< server product="Hetzner CPX11" os="Ubuntu 18.04.4 (Linux 4.15.0-99-generic)" cpu="AMD EPYC Processor (2 vCPUs)" ram="2 GB RAM / 2 GB Swap" >}}{{< /server >}}
+{{< server product="Hetzner CPX11" os="Ubuntu 18.04.4 (Linux 4.15.0-99-generic)" cpu="AMD EPYC Processor (IBPB, 2 vCPUs)" ram="2 GB RAM / 2 GB Swap" >}}{{< /server >}}
 
 ## Live streaming
 
