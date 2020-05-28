@@ -26,6 +26,10 @@ I am not an expert in server administration (not even close). The steps below ar
 
 The FD Seminar itself runs on [BigBlueButton (BBB)](https://bigbluebutton.org/), an open-source web conferencing software. I installed it following the [BBB official installation guide](https://docs.bigbluebutton.org/2.2/install.html) and it took me around one hour.
 
+### Greenlight
+
+You need to install one more piece of software, called [Greenlight](https://docs.bigbluebutton.org/greenlight/gl-overview.html), which serves as a front-end to your BBB server; with it you can manage BBB's users, rooms, and recordings. I installed it following the [Greenlight official installation guide](https://docs.bigbluebutton.org/greenlight/gl-install.html) and it took me about half an hour. I needed to customise Greenlight to fit our needs; for this I followed the [Greenlight official customisation guide](https://docs.bigbluebutton.org/greenlight/gl-customize.html), which took me a further ten minutes. Customising Greenlight is a potential rabbit hole; I probably spent around four hours on this.
+
 ### TURN server
 
 Some users experienced problems when trying to join audio sessions in our BigBlueButton instance (error 1007); this is likely due to users attempting to connect behind a firewall. I followed the [BBB official guide for setting up a TURN server](https://docs.bigbluebutton.org/2.2/setup-turn-server.html) in an attempt to fix this (~~it remains to be seen if this solves our users' issues~~ this solved our users' issues). The installation took around 30 minutes.
@@ -34,11 +38,7 @@ These are the specifications of our TURN server:
 
 {{< server product="Hetzner CPX11" os="Ubuntu 18.04.4 (Linux 4.15.0-99-generic)" cpu="AMD EPYC Processor (2 vCPUs)" ram="2 GB RAM / 2 GB Swap" >}}{{< /server >}}
 
-### Greenlight
-
-You need to install one more piece of software, called [Greenlight](https://docs.bigbluebutton.org/greenlight/gl-overview.html), which serves as a front-end to your BBB server; with it you can manage BBB's users, rooms, and recordings. I installed it following the [Greenlight official installation guide](https://docs.bigbluebutton.org/greenlight/gl-install.html) and it took me about half an hour. I needed to customise Greenlight to fit our needs; for this I followed the [Greenlight official customisation guide](https://docs.bigbluebutton.org/greenlight/gl-customize.html), which took me a further ten minutes. Customising Greenlight is a potential rabbit hole; I probably spent around four hours on this.
-
-### Live streaming
+## Live streaming
 
 To accommodate for a larger number of participants, we use [OBS Studio](https://obsproject.com/) to stream the talks to an [RTMP streaming server](https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol) set up following this [excellent guide at the NGINX blog](https://www.nginx.com/blog/video-streaming-for-remote-learning-with-nginx/#Streaming-Live-Video-and-Storing-Videos-with-NGINX-Open-Source); we stream using [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP). In order to view the stream in a web browser we use [indigo-player](https://matvp91.github.io/indigo-player/#/); you will need to configure correcly the CORS headers in your `http` block, see for example [this guide](https://docs.peer5.com/guides/cors/). This should take you around 10 minutes (it took me much longer since I was not aware of the need of configuring the CORS headers).
 
