@@ -31,6 +31,14 @@ If you experience problems registering or using BigBlueButton, please read the t
 
 {{< note >}}We **strongly recommend** to use [Google Chrome](https://www.google.com/chrome/)/Chromium or [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/) when joining the FD Seminar via BigBlueButton; other browsers (such as Safari or Internet Explorer) are not supported and may experience unexpected technical issues (for example, crackling audio).{{< /note >}}
 
+### Live stream
+
+The talks will also be [live-streamed](https://www.fd-seminar.xyz/live). The required credentials are
+```
+username: fd-seminar
+password: access code for the BigBlueButton session
+```
+
 ## Information for speakers
 
 We recommend that you create an account in [our BigBlueButton instance](https://bbb.fd-seminar.xyz). Please inform us after you do so; we will then give your account the role of 'speaker' so you can test-drive the software before your talk. During your talk you will be able to upload a PDF file which will be shown in the participants' screens (for example, a LaTeX beamer presentation). This is much less resource-intensive than sharing your screen with the PDF file open in your own computer. BigBlueButton provides basic annotation functionalities which we encourage you to experiment with before your talk. We also suggest that you allow us to make your PDF file available for download as it will be helpful for participants to have access to it in a different application during your talk; this can be done directly through BigBlueButton during the talk.
