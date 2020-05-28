@@ -70,6 +70,6 @@ The FD seminar ran on a cloud server with the following specifications:
 
 {{< server product="Hetzner CCX41" os="Ubuntu 16.04 (Linux 4.4.0-178-generic)" cpu="Intel Xeon Processor (Skylake, IBRS, 16 dedicated vCPUs)" ram="64 GB RAM / 8 GB Swap" >}}{{< /server >}}
 
-We found these to optimal for running a single BBB session with close to 97 participants and 6 shared webcams. Below is a screenshot with the metrics gathered during the talk.
+We found these to optimal for running a single BBB session with close to 100 participants and 6 shared webcams. Below is a screenshot with the metrics gathered during the talk.
 
-[![21.05.2020](/img/grafana-21.05.2020.png)](/img/grafana-21.05.2020.png)
+[![21.05.2020](/img/grafana-21.05.2020.png)](/img/grafana-28.05.2020.png)
