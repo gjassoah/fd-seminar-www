@@ -5,8 +5,8 @@
 {{ define "content" }}
 <div class="post">
     <h1>{{ .Title }}</h1>
-    {{ partial "indigo-player.html" . }}
     {{ .Content }}
+    {{ partial "indigo-player.html" . }}
 </div>
 {{ end }}
 
