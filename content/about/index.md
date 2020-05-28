@@ -33,7 +33,7 @@ If you experience problems registering or using BigBlueButton, please read the t
 
 ### Live stream
 
-The talks will also be [live-streamed](https://www.fd-seminar.xyz/live). The required credentials are
+The talks will also be [live-streamed](https://www.fd-seminar.xyz/live). The login credentials for accessing the live stream are as follows:
 ```
 username: fd-seminar
 password: access code for the BigBlueButton session
