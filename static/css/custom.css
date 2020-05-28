@@ -243,3 +243,7 @@ div.post__related {
     margin-bottom: 2.75rem;
     text-transform: unset;
 }
+
+#playerContainer {
+    margin-top: 1rem;
+}
