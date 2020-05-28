@@ -40,7 +40,11 @@ These are the specifications of our TURN server:
 
 ## Live streaming
 
-To accommodate for a larger number of participants, we use [OBS Studio](https://obsproject.com/) to stream the talks to an [RTMP streaming server](https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol) set up following this [excellent guide at the NGINX blog](https://www.nginx.com/blog/video-streaming-for-remote-learning-with-nginx/#Streaming-Live-Video-and-Storing-Videos-with-NGINX-Open-Source); we stream using [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP). In order to view the stream in a web browser we use [indigo-player](https://matvp91.github.io/indigo-player/#/); you will need to configure correcly the CORS headers in your `http` block, see for example [this guide](https://docs.peer5.com/guides/cors/). This should take you around 10 minutes (it took me much longer since I was not aware of the need of configuring the CORS headers).
+To accommodate for a larger number of participants, we use [OBS Studio](https://obsproject.com/) to stream the talks to an [RTMP server](https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol) set up following this [excellent guide at the NGINX blog](https://www.nginx.com/blog/video-streaming-for-remote-learning-with-nginx/#Streaming-Live-Video-and-Storing-Videos-with-NGINX-Open-Source); we stream using [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP). In order to view the stream in a web browser we use [indigo-player](https://matvp91.github.io/indigo-player/#/); you will need to configure correcly the CORS headers in your `http` block, see for example [this guide](https://docs.peer5.com/guides/cors/). This should take you around 10 minutes (it took me much longer since I was not aware of the need of configuring the CORS headers).
+
+These are the specifications of our RTMP server during the live streams:
+
+{{< server product="Hetzner CPX21" os="Ubuntu 18.04.4 (Linux 4.15.0-99-generic)" cpu="AMD EPYC Processor (3 vCPUs)" ram="4 GB RAM / 2 GB Swap" >}}{{< /server >}}
 
 ## Firewall
 
