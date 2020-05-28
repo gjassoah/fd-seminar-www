@@ -1,5 +1,6 @@
 +++
 title = "Live stream"
+menu = "main"
 type = "live"
 +++
 {{< note >}}
