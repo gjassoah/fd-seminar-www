@@ -18,6 +18,8 @@ Happy hacking!
 
 Gustavo
 
+P.S. FWIW [Help the World by Healing Your NGINX Configuration](https://www.nginx.com/blog/help-the-world-by-healing-your-nginx-configuration/)
+
 {{< warning >}}
 I am not an expert in server administration (not even close). The steps below are provided for reference only and under no warranty of applicability or suitability. Follow them at your own risk!
 {{< /warning >}}
