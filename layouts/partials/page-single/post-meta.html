@@ -12,7 +12,7 @@
     {{ if not .Date.IsZero }}
     <i class="fas fa-calendar-alt"></i>
     <script>
-     document.write(moment.utc({{ .Date }}).local().format('llll'));
+     document.write(moment.utc({{ .Date }}).local().format('MMMM Do, YYYY @ h:mm a'));
     </script>
     {{ end }}
     <!-- categories -->

@@ -24,7 +24,7 @@
     <div>
         <i class="fas fa-calendar-alt"></i>
         <script>
-         document.write(moment.utc({{ .Date }}).local().format('llll'));
+         document.write(moment.utc({{ .Date }}).local().format('MMMM Do, YYYY @ h:mm a'));
         </script>
     </div>
     </div>
@@ -63,7 +63,7 @@
         <div>
             <i class="fas fa-calendar-alt"></i>
             <script>
-             document.write(moment.utc({{ .Date }}).local().format('llll'));
+             document.write(moment.utc({{ .Date }}).local().format('MMMM Do, YYYY @ h:mm a'));
             </script>
         </div>
     </div>

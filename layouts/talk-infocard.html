@@ -2,11 +2,11 @@
     {{ .Title }}
 </span>
 {{ if .Params.speaker.affiliation }}
-<span class="item__speaker"> 
+<span class="item__speaker">
     <i class="fas fa-user"></i> <a href="{{ .Params.speaker.Homepage }}">{{ .Params.speaker.Name }}</a>
 </span>
 {{ end }}
-<span class="item__speaker-affiliation"> 
+<span class="item__speaker-affiliation">
     <i class="fas fa-university"></i> {{ .Params.speaker.Affiliation }}
 </span>
 <span class="item__date">
