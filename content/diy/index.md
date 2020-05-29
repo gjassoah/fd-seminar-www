@@ -8,7 +8,7 @@ type = "about"
 
 # DIY BigBlueButton Server
 
-During the talks, the FD Serminar runs on a cloud server with the following specifications:
+During the talks, the FD Seminar runs on a cloud server with the following specifications:
 
 {{< server product="Hetzner CCX41" os="Ubuntu 16.04 (Linux 4.4.0-178-generic)" cpu="Intel Xeon Processor (Skylake, IBRS, 16 dedicated vCPUs)" ram="64 GB RAM / 8 GB Swap" >}}{{< /server >}}
 
