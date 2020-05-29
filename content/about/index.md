@@ -77,7 +77,7 @@ Some participants have reported some issues registering in our BigBlueButton ins
   
   * Create an account using a different e-mail address; please [contact us](mailto:admin@fd-seminar.xyz) in case you think we will not recognise your address. 
   
-  * Contact the IT department at your institution and ask them to whitelist our domain name (fd-seminar.xyz) so that out e-mails no longer go to the spam/quarantine folder.
+  * Contact the IT department at your institution and ask them to whitelist our domain name (fd-seminar.xyz) so that our e-mails no longer go to the spam/quarantine folder.
 
 * Some users received an error (404) after clicking on the verification link. This is probably due to some anti-phishing system pre-loading the e-mail verification page. You can try to sign in since your e-mail address was probably verified successfully (despite the error).
 
@@ -103,7 +103,7 @@ If you select **Listen only** you will enter the session with the microphone _di
 
 ![Leave audio](/img/leave_audio.png)
 
-You can then click on the 'Join audio' button (marked with a crossed-out phone) and select to join the session by by **Microphone**:
+You can then click on the 'Join audio' button (marked with a crossed-out phone) and select to join the session by **Microphone**:
 
 ![Join audio](/img/join_audio.png)
 
