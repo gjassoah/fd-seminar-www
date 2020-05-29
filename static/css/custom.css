@@ -189,8 +189,12 @@ ul.posts li::after, ul.related-posts li::after {
     font-weight: unset;
 }
 
-.post__meta svg.svg-inline--fa {
+.post__meta svg.svg-inline--fa, .post__meta i {
     margin-right: 0.5rem;
+}
+
+.list__title--small {
+    font-size: 1.25rem;
 }
 
 .social a {
