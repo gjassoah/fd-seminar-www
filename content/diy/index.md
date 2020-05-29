@@ -58,7 +58,7 @@ We use [Grafana](https://grafana.com/) and [Prometheus](https://prometheus.io/) 
 
 ### 21.05.2020
 
-The FD seminar ran on a cloud server with the following specifications:
+The FD Seminar ran on a cloud server with the following specifications:
 
 {{< server product="Linode Dedicated 16GB" os="Ubuntu 16.04 (Linux 4.4.0-179-generic)" cpu="AMD EPYC 7501 32-Core Processor (8 dedicated vCPUs)" ram="16 GB RAM / 10 GB Swap" >}}{{< /server >}}
 
@@ -68,7 +68,7 @@ We found these to be sub-optimal for running a single BBB session with 77 partic
 
 ### 28.05.2020
 
-The FD seminar ran on a cloud server with the following specifications:
+The FD Seminar ran on a cloud server with the following specifications:
 
 {{< server product="Hetzner CCX41" os="Ubuntu 16.04 (Linux 4.4.0-178-generic)" cpu="Intel Xeon Processor (Skylake, IBRS, 16 dedicated vCPUs)" ram="64 GB RAM / 8 GB Swap" >}}{{< /server >}}
 
