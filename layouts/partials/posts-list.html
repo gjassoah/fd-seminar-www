@@ -1,11 +1,18 @@
 {{ range . }}
 <li>
-    <!-- published date -->
-    {{ if not .Date.IsZero }}
-    <script>
-     document.write(moment.utc({{ .Date }}).local().format('MMMM Do, YYYY'));
-    </script>
-    {{ end }}
+    <div style="position: relative;">
+        <!-- published date -->
+        {{ if not .Date.IsZero }}
+        <script>
+         document.write(moment.utc({{ .Date }}).local().format('MMMM Do, YYYY'));
+        </script>
+        {{ end }}
+        {{ if .Params.Slides }}
+        <div style="display: inline-block; position: absolute; right: 0;">
+            <a href="{{ .Site.BaseURL }}pdf/talks/{{ .Date.Format "2006-01-02" }}.pdf">Slides <i class="fas fa-file-download"></i></a>
+        </div>
+        {{ end }}
+    </div>
     <div class="list__title--small">
         <a href="{{ .RelPermalink }}" {{if .Draft}}class="draft"{{end}}>{{ .Title }}</a>
     </div>
