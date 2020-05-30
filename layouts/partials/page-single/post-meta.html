@@ -1,7 +1,14 @@
 {{ if ne .Params.showpagemeta false }}
 <div class="post__meta">
-    <div class="post__meta-item">
-        <i class="fas fa-user"></i><a href="{{ .Params.speaker.Homepage }}">{{ .Params.speaker.Name }}</a>
+    <div class="post__meta-item" style="position: relative;">
+        {{ if .Params.Slides }}
+        <div style="display: inline-block; position: absolute; right: 0;">
+            <code>
+                <a href="{{ .Site.BaseURL }}/pdf/talks/{{ .Date.Format "2006-01-02" }}.pdf" style="color: inherit;">Slides <i class="fas fa-file-download"></i></a>
+            </code>
+        </div>
+        {{ end }}
+        <i class="fas fa-user"></i> <a href="{{ .Params.speaker.Homepage }}">{{ .Params.speaker.Name }}</a>
     </div>
     {{ if .Params.Affiliation }}
     <div class="post__meta-item">
@@ -39,6 +46,5 @@
     {{ end }}
     {{ end }}
     {{ end }}
-    <br/>
 </div>
 {{ end }}
