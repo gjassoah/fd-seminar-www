@@ -9,7 +9,9 @@
         {{ end }}
         {{ if .Params.Slides }}
         <div style="display: inline-block; position: absolute; right: 0;">
-            <a href="{{ .Site.BaseURL }}pdf/talks/{{ .Date.Format "2006-01-02" }}.pdf">Slides <i class="fas fa-file-download"></i></a>
+            <code>
+                <a href="{{ .Site.BaseURL }}pdf/talks/{{ .Date.Format "2006-01-02" }}.pdf" style="color: inherit;">Slides <i class="fas fa-file-download"></i></a>
+            </code>
         </div>
         {{ end }}
     </div>
