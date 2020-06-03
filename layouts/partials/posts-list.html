@@ -1,5 +1,6 @@
 {{ range . }}
-<li id="{{ .Date.Format "2006-01-02" }}">
+{{ $date := .Date.Format "2006-01-02" }}
+<li id="{{ $date }}">
     <div style="position: relative;">
         <!-- published date -->
         {{ if not .Date.IsZero }}
@@ -7,10 +8,11 @@
          document.write(moment.utc({{ .Date }}).local().format('MMMM Do, YYYY'));
         </script>
         {{ end }}
-        {{ if .Params.Slides }}
+        {{ $notes := printf "%s" ".pdf" | printf "%s%s" $date | printf "%s%s" "static/pdf/talks/" }}
+        {{ if (fileExists $notes ) -}}
         <div style="display: inline-block; position: absolute; right: 0;">
             <code>
-                <a href="{{ .Site.BaseURL }}/pdf/talks/{{ .Date.Format "2006-01-02" }}.pdf" style="color: inherit;">Slides <i class="fas fa-file-download"></i></a>
+                <a href="{{ .Site.BaseURL }}/pdf/talks/{{ $date }}.pdf" style="color: inherit;">Slides <i class="fas fa-file-download"></i></a>
             </code>
         </div>
         {{ end }}
