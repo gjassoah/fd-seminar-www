@@ -1,7 +1,9 @@
 {{ if ne .Params.showpagemeta false }}
 <div class="post__meta">
     <div class="post__meta-item" style="position: relative;">
-        {{ if .Params.Slides }}
+        {{ $date := .Date.Format "2006-01-02" }}
+        {{ $notes := printf "%s" ".pdf" | printf "%s%s" $date | printf "%s%s" "static/pdf/talks/" }}
+        {{ if (fileExists $notes ) -}}
         <div style="display: inline-block; position: absolute; right: 0;">
             <code>
                 <a href="{{ .Site.BaseURL }}/pdf/talks/{{ .Date.Format "2006-01-02" }}.pdf" style="color: inherit;">Slides <i class="fas fa-file-download"></i></a>
