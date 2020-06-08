@@ -1,0 +1,13 @@
++++
+title = "TBA"
+date = 2020-07-23T13:00:00-00:00
+
+affiliation = "University of North Carolina"
+location = "US"
+latitude = "35.904911"
+longitude = "-79.046913"
+
+[speaker]
+  name = "Cris Negron"
+  homepage = "https://negron.math.unc.edu/"
++++
