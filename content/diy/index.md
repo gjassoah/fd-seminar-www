@@ -83,3 +83,4 @@ The FD Seminar ran on a cloud server with the following specifications:
 {{< server product="Hetzner CCX41" os="Ubuntu 16.04 (Linux 4.4.0-178-generic)" cpu="Intel Xeon Processor (Skylake, IBRS, 16 dedicated vCPUs)" ram="64 GB RAM / 8 GB Swap" >}}{{< /server >}}
 
 [![04.06.2020](/img/grafana-04.06.2020.png)](/img/grafana-04.06.2020.png)
+
