@@ -83,3 +83,398 @@ The FD Seminar ran on a cloud server with the following specifications:
 {{< server product="Hetzner CCX41" os="Ubuntu 16.04 (Linux 4.4.0-178-generic)" cpu="Intel Xeon Processor (Skylake, IBRS, 16 dedicated vCPUs)" ram="64 GB RAM / 8 GB Swap" >}}{{< /server >}}
 
 [![04.06.2020](/img/grafana-04.06.2020.png)](/img/grafana-04.06.2020.png)
+
+## Automation
+
+We manage our servers with [Ansible](https://www.ansible.com/).
+
+### Update BigBlueButton
+
+The playbook below retrieves the TURN server's current static AUTH secret during each update.
+
+{{< highlight yaml >}}
+# https://docs.bigbluebutton.org/2.2/install.html
+# https://docs.bigbluebutton.org/2.2/customize.html
+
+- hosts: bbb.fd-seminar.xyz
+  become: yes
+  tasks:
+  - name: register cronjob for renewing letsencrypt certs
+    cron:
+      name: "renew letsencrypt certs"
+      minute: "30"
+      hour: "2"
+      weekday: "1"      
+      job: "/usr/bin/certbot renew >> /var/log/le-renew.log"
+
+  - name: register cronjob for restarting nginx after renewing letsencrypt certs
+    cron:
+      name: "restart nginx after renewing letsencrypt certs"
+      minute: "35"
+      hour: "2"
+      weekday: "1"
+      job: "/bin/systemctl reload nginx"
+      
+  - name: deny all incoming connections
+    ufw:
+      default: deny
+      direction: incoming
+
+  - name: allow all outgoing connections
+    ufw:
+      default: allow
+      direction: outgoing
+
+  - name: allow connections to port 22 (SSH) 
+    ufw:
+      rule: allow
+      port: '22'
+      # use a different port for added security 
+
+  - name: allow connections to port 80 (HTTP)
+    ufw:
+      rule: allow
+      port: '80'
+      proto: tcp
+
+  - name: allow connections to port 433 (TLS)
+    ufw:
+      rule: allow
+      port: '443'
+      proto: tcp
+
+  - name: allow connections to port 16384:32768 (BBB)
+    ufw:
+      rule: allow
+      port: '16384:32768'
+      proto: udp
+
+  - name: enable uncomplicated firewall (UFW)
+    ufw:
+      state: enabled
+
+  - name: update all packages to the latest version
+    apt:
+      upgrade: dist
+      update_cache: yes
+
+  - name: restore FQDN
+    command: bbb-conf --setip bbb.fd-seminar.xyz
+
+  - name: configure TURN server
+    copy:
+      src: files/coturn/turn-stun-servers.xml
+      dest: /usr/share/bbb-web/WEB-INF/classes/spring/turn-stun-servers.xml
+      owner: bigbluebutton
+      group: bigbluebutton
+      mode: u=rw,g=r,o=r
+
+  - name: get local username
+    local_action: command whoami
+    become: no
+    register: local_user
+
+  - name: retrieve current TURN static auth secret
+    shell: ssh {{ local_user.stdout }}@turn.fd-seminar.xyz cat /etc/turnserver.conf | grep static-auth-secret= | awk -F '=' '{print $NF}'
+    register: current_secret
+    delegate_to: 127.0.0.1
+    become_user: "{{ local_user.stdout }}"
+
+  - name: update TURN static auth secret
+    replace:
+      path: /usr/share/bbb-web/WEB-INF/classes/spring/turn-stun-servers.xml
+      regexp: 'STATIC_AUTH_SECRET'
+      replace: "{{ current_secret.stdout }}"
+
+  - name: set URL for default presentation
+    replace:
+      path: /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
+      regexp: 'beans.presentationService.defaultUploadedPresentation=.*'
+      replace: 'beans.presentationService.defaultUploadedPresentation=https://www.fd-seminar.xyz/pdf/bbb-howto.pdf'
+
+  - name: set default welcome message
+    replace:
+      path: /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
+      regexp: 'defaultWelcomeMessage=.*'
+      replace: 'defaultWelcomeMessage=Welcome to <b>%%CONFNAME%%</b>!<br><br>A live stream of the talk is also available at <a href="https://www.fd-seminar.xyz/live" target="_blank"><u>https://www.fd-seminar.xyz/live</u></a><br><br>Username: fd-seminar<br>Password: access code for this meeting'
+
+  - name: set default welcome message (footer)
+    replace:
+      path: /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
+      regexp: 'defaultWelcomeMessageFooter=.*'
+      replace: 'defaultWelcomeMessageFooter=Thank you for joining!'
+
+  - name: set maximum presentation page number
+    replace:
+      path: /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
+      regexp: 'maxNumPages=.*'
+      replace: 'maxNumPages=1000'
+
+  - name: set maximum presentation file size
+    replace:
+      path: /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
+      regexp: 'maxFileSizeUpload=.*'
+      replace: 'maxFileSizeUpload=30000000'
+
+  - name: mute meetings on start by default
+    replace:
+      path: /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
+      regexp: 'muteOnStart=.*'
+      replace: 'muteOnStart=true'
+
+  - name: force HTML5 client (participants)
+    replace:
+      path: /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
+      regexp: 'attendeesJoinViaHTML5Client=.*'
+      replace: 'attendeesJoinViaHTML5Client=true'
+
+  - name: force HTML5 client (moderators)
+    replace:
+      path: /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
+      regexp: 'moderatorsJoinViaHTML5Client=.*'
+      replace: 'moderatorsJoinViaHTML5Client=true'
+
+  - name: disable "you are now muted" feedback sound
+    replace:
+      path: /opt/freeswitch/etc/freeswitch/autoload_configs/conference.conf.xml
+      regexp: '      <param name="muted-sound" value="conference/conf-muted.wav"/>'
+      replace: '      <!-- <param name="muted-sound" value="conference/conf-muted.wav"/> -->'
+
+  - name: disable "you are now unmuted" feedback sound
+    replace:
+      path: /opt/freeswitch/etc/freeswitch/autoload_configs/conference.conf.xml
+      regexp: '      <param name="unmuted-sound" value="conference/conf-unmuted.wav"/>'
+      replace: '      <!-- <param name="unmuted-sound" value="conference/conf-unmuted.wav"/> -->'
+
+  - name: set camera defaults to reduced bitrates
+    shell: >
+      yq w -i /usr/share/meteor/bundle/programs/server/assets/app/config/settings.yml public.kurento.cameraProfiles.[0].bitrate 50
+      yq w -i /usr/share/meteor/bundle/programs/server/assets/app/config/settings.yml public.kurento.cameraProfiles.[1].bitrate 100
+      yq w -i /usr/share/meteor/bundle/programs/server/assets/app/config/settings.yml public.kurento.cameraProfiles.[2].bitrate 200
+      yq w -i /usr/share/meteor/bundle/programs/server/assets/app/config/settings.yml public.kurento.cameraProfiles.[3].bitrate 300
+      yq w -i /usr/share/meteor/bundle/programs/server/assets/app/config/settings.yml public.kurento.cameraProfiles.[0].default true
+      yq w -i /usr/share/meteor/bundle/programs/server/assets/app/config/settings.yml public.kurento.cameraProfiles.[1].default false
+      yq w -i /usr/share/meteor/bundle/programs/server/assets/app/config/settings.yml public.kurento.cameraProfiles.[2].default false
+      yq w -i /usr/share/meteor/bundle/programs/server/assets/app/config/settings.yml public.kurento.cameraProfiles.[3].default false
+
+  - name: delete raw data from unpublished recordings after 2 days
+    replace:
+      path: /etc/cron.daily/bigbluebutton
+      regexp: 'recorded_days=.*'
+      replace: 'recorded_days=2'
+
+  - name: delete raw data from published recordings after 2 days
+    replace:
+      path: /etc/cron.daily/bigbluebutton
+      regexp: 'published_days=.*'
+      replace: 'published_days=2'
+
+  - name: restart BigBlueButton
+    command: bbb-conf --restart
+{{< / highlight >}}
+
+## Update TURN server
+
+The playbook below generates a new static AUTH secret during update for added security.
+
+{{< highlight yaml >}}
+# https://docs.bigbluebutton.org/2.2/setup-turn-server.html
+
+- hosts: turn.fd-seminar.xyz
+  become: yes
+  tasks:
+  - name: deny all incoming connections
+    ufw:
+      default: deny
+      direction: incoming
+
+  - name: allow all outgoing connections
+    ufw:
+      default: allow
+      direction: outgoing
+
+  - name: allow connections to port 22 (SSH)
+    ufw:
+      rule: allow
+      port: '22'
+      # use a different port for added security
+
+  - name: allow connections to port 80 (HTTP)
+    ufw:
+      rule: allow
+      port: '80'
+      proto: tcp
+
+  - name: allow connections to port 443/tcp (TLS)
+    ufw:
+      rule: allow
+      port: '443'
+      proto: tcp
+
+  - name: allow connections to port 433/udp (TLS)
+    ufw:
+      rule: allow
+      port: '443'
+      proto: udp
+
+  - name: allow connections to port 3478/tcp (COTURN)
+    ufw:
+      rule: allow
+      port: '3478'
+      proto: tcp
+
+  - name: allow connections to port 3478/udp (COTURN)
+    ufw:
+      rule: allow
+      port: '3478'
+      proto: udp
+
+  - name: allow connections to port 49152:65535/udp (relay ports)
+    ufw:
+      rule: allow
+      port: '49152:65535'
+      proto: udp
+
+  - name: enable uncomplicated firewall (UFW)
+    ufw:
+      state: enabled
+
+  - name: update all packages to the latest version
+    apt:
+      upgrade: dist
+      update_cache: yes
+
+  - name: full system update
+    apt:
+      update_cache: yes
+      upgrade: dist
+
+  - name: install coturn
+    apt:
+      name: coturn
+      state: present
+
+  - name: enable fingerprints in TURN messages
+    lineinfile:
+      path: /etc/turnserver.conf
+      regexp: '#fingerprint'
+      line: 'fingerprint'
+      state: present
+
+  - name: enable long-term credential mechanism
+    lineinfile:
+      path: /etc/turnserver.conf
+      regexp: '#lt-cred-mech'
+      line: 'lt-cred-mech'
+      state: present
+
+  - name: enable secret-based authentication
+    lineinfile:
+      path: /etc/turnserver.conf
+      regexp: '#use-auth-secret'
+      line: 'use-auth-secret'
+      state: present
+
+  - name: generated static auth secret
+    shell: openssl rand -hex 16
+    register: new_secret
+
+  - name: update static auth secret
+    lineinfile:
+      path: /etc/turnserver.conf
+      regexp: 'static-auth-secret=.*'
+      line: 'static-auth-secret={{ new_secret.stdout }}'
+      state: present
+
+  - name: set default realm
+    lineinfile:
+      path: /etc/turnserver.conf
+      regexp: 'realm=.*'
+      line: 'realm=fd-seminar.xyz'
+      state: present
+
+  - name: set path to let's encrypt certificate file
+    lineinfile:
+      path: /etc/turnserver.conf
+      regexp: 'cert=.*'
+      line: 'cert=<path to certificate file>'
+      state: present
+
+  - name: set path to let's encrypt private key
+    lineinfile:
+      path: /etc/turnserver.conf
+      regexp: 'pkey=.*'
+      line: 'pkey=<path to certificate private key>'
+      state: present
+
+  - name: limit the allowed ciphers
+    lineinfile:
+      path: /etc/turnserver.conf
+      regexp: 'cipher-list=.*'
+      line: 'cipher-list="ECDH+AESGCM:ECDH+CHACHA20:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:RSA+AESGCM:RSA+AES:!aNULL:!MD5:!DSS"'
+      state: present
+
+  - name: enable longer DH TLS key
+    lineinfile:
+      path: /etc/turnserver.conf
+      regexp: '#dh2066'
+      line: 'dh2066'
+      state: present
+
+  - name: set path to log file
+    lineinfile:
+      path: /etc/turnserver.conf
+      regexp: 'log-file=.*'
+      line: 'log-file=/var/log/coturn.log'
+      state: present
+
+  - name: enable logging into a single file
+    lineinfile:
+      path: /etc/turnserver.conf
+      regexp: '#simple-log'
+      line: 'simple-log'
+      state: present
+  
+  - name: disable TLS/DTLS protocols v1
+    lineinfile:
+      path: /etc/turnserver.conf
+      regexp: '#no-tlsv1'
+      line: 'no-tlsv1'
+      state: present
+
+  - name: disable TLS/DTLS protocols v1.1
+    lineinfile:
+      path: /etc/turnserver.conf
+      regexp: '#no-tlsv1_1'
+      line: 'no-tlsv1_1'
+      state: present
+
+  - name: log to a single file
+    lineinfile:
+      path: /etc/turnserver.conf
+      regexp: 'log-file=.*'
+      line: 'log-file=/var/log/coturn.log'
+      state: present
+
+  - name: copy log rotation conf
+    copy:
+      src: files/coturn/coturn
+      dest: /etc/logrotate.d/coturn
+      owner: root
+      group: root
+      mode: u=rw,g=r,o=r
+    # https://docs.bigbluebutton.org/2.2/setup-turn-server.html#configure-log-rotation
+    
+  - name: enable coturn service in conf file
+    lineinfile:
+      path: /etc/default/coturn
+      regexp: '#TURNSERVER_ENABLED=.*'
+      line: 'TURNSERVER_ENABLED=1'
+      state: present
+
+  - name: enable coturn service
+    service:
+      name: coturn
+      state: restarted
+      enabled: yes
+{{< / highlight >}}

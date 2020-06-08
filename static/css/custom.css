@@ -251,3 +251,11 @@ div.post__related {
 #playerContainer {
     margin-top: 1rem;
 }
+
+div.highlight {
+    line-height: 0.85rem;
+}
+
+code {
+    font-size: 0.66rem;
+}
