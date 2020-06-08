@@ -273,7 +273,7 @@ The playbook below retrieves the TURN server's current static AUTH secret during
     command: bbb-conf --restart
 {{< / highlight >}}
 
-## Update TURN server
+### Update TURN server
 
 The playbook below generates a new static AUTH secret during update for added security.
 
