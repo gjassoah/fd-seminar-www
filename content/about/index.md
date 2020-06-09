@@ -65,6 +65,10 @@ Thank you for contributing to the FD Seminar!
 
 #### Problems registering
 
+After a successful registration to our BigBlueButton instance, you should be able to sign in and see the following screen:
+
+[![Greenlight](/img/greenlight.png)](/img/greenlight.png)
+
 {{< note >}}
 In case you cannot log in to your BigBlueButton account (e.g. because you did not receive the e-mail verification message), **you can simply join the talk with the direct link and access code** which is distributed through our mailing list.
 {{< /note >}}
