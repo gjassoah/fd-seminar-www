@@ -35,7 +35,7 @@ The FD Seminar uses [BigBlueButton (BBB)](https://bigbluebutton.org/)---an open-
 
 ### Greenlight
 
-[Greenlight](https://docs.bigbluebutton.org/greenlight/gl-overview.html) is the standard end-user interface for the BBB server (needed to manage users, rooms, and recordings). It can be installed following the [Greenlight official installation guide](https://docs.bigbluebutton.org/greenlight/gl-install.html). For customising Greenlight to fit the needs of the seminar, I followed the [Greenlight official customisation guide](https://docs.bigbluebutton.org/greenlight/gl-customize.html). Customising Greenlight is a potential rabbit hole; I probably spent around four hours on this.
+[Greenlight](https://docs.bigbluebutton.org/greenlight/gl-overview.html) is the standard end-user interface for the BBB server (needed to manage users, rooms, and recordings). It can be installed following the [Greenlight official installation guide](https://docs.bigbluebutton.org/greenlight/gl-install.html). For customising Greenlight to fit the needs of the seminar, I followed the [Greenlight official customisation guide](https://docs.bigbluebutton.org/greenlight/gl-customize.html).
 
 [![Greenlight](/img/greenlight.png)](/img/greenlight.png)
 
@@ -49,9 +49,9 @@ These are the specifications of our TURN server:
 
 ## Live streaming
 
-We use [OBS Studio](https://obsproject.com/) to stream the talks to an [RTMP server](https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol) which we set up following this [guide at the NGINX blog](https://www.nginx.com/blog/video-streaming-for-remote-learning-with-nginx/) (we stream using [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP)). In order to view the stream in a web browser we use [indigo-player](https://matvp91.github.io/indigo-player/#/), for which you need to configure correctly the CORS headers in your `http` block, see for example [this guide](https://docs.peer5.com/guides/cors/). This should take you around 10 minutes (it took me much longer since I was not aware of the need of configuring the CORS headers).
+We use [OBS Studio](https://obsproject.com/) to stream the talks to an [RTMP server](https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol) which we set up following this [guide at the NGINX blog](https://www.nginx.com/blog/video-streaming-for-remote-learning-with-nginx/) and also [this guide](https://docs.peer5.com/guides/cors/) for configuring the CORS headers. We stream using [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP)) and [indigo-player](https://matvp91.github.io/indigo-player/#/).
 
-These are the specifications of our RTMP server during the live streams:
+These are the specifications of our RTMP server:
 
 {{< server product="Hetzner CPX21" os="Ubuntu 18.04.4 (Linux 4.15.0-99-generic)" cpu="AMD EPYC Processor (3 vCPUs)" ram="4 GB RAM / 2 GB Swap" >}}{{< /server >}}
 
@@ -77,7 +77,7 @@ We found these to be sub-optimal for running a single BBB session with 77 partic
 
 We manage our servers with [Ansible](https://www.ansible.com/); the playbooks below are run in the following order: TURN &rarr; BBB &rarr; Greenlight.
 
-### Playbook for updating BigBlueButton
+### Updating BigBlueButton
 
 {{< highlight yaml >}}
 # https://docs.bigbluebutton.org/2.2/install.html
@@ -261,7 +261,7 @@ We manage our servers with [Ansible](https://www.ansible.com/); the playbooks be
     command: bbb-conf --restart
 {{< / highlight >}}
 
-### Playbook for updating Greenlight
+### Updating Greenlight
 
 {{< highlight yaml >}}
 # https://docs.bigbluebutton.org/greenlight/gl-customize.html
@@ -299,7 +299,7 @@ We manage our servers with [Ansible](https://www.ansible.com/); the playbooks be
     become: yes
 {{< / highlight >}}
 
-### Playbook for updating TURN server
+### Updating the TURN server
 
 {{< highlight yaml >}}
 # https://docs.bigbluebutton.org/2.2/setup-turn-server.html
