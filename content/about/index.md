@@ -125,7 +125,7 @@ The source code for the website is available [here](https://git.sr.ht/~gjasso/fd
 
 ### Server
 
-{{< note >}}If you are interested in how we set-up our server, click [here](/diy).{{< /note >}}
+{{< note >}}If you are interested in how we set up our server, click [here](/diy).{{< /note >}}
 
 Our servers are located in Falkenstein, Germany and are rented from the internet hosting company [Hetzner](https://www.hetzner.com/).
 
@@ -137,4 +137,4 @@ If you create an account in our BigBlueButton instance, the following informatio
 
 We have made slight modifications to the web interface to our BigBlueButton instance; the source code is available [here](https://git.sr.ht/~gjasso/fd-seminar-greenlight).
 
-Our SSL/TLS certificates (needed for encrypting the traffic through our website and BigBlueButton instance) are provided by [Let's Encrypt](https://letsencrypt.org).
+Our SSL/TLS certificates (needed for encrypting the through our servers) are provided by [Let's Encrypt](https://letsencrypt.org).
