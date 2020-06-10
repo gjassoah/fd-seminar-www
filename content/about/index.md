@@ -137,4 +137,4 @@ If you create an account in our BigBlueButton instance, the following informatio
 
 We have made slight modifications to the web interface to our BigBlueButton instance; the source code is available [here](https://git.sr.ht/~gjasso/fd-seminar-greenlight).
 
-Our SSL/TLS certificates (needed for encrypting the through our servers) are provided by [Let's Encrypt](https://letsencrypt.org).
+Our SSL/TLS certificates (needed for encrypting the traffic through our website and BigBlueButton server) are provided by [Let's Encrypt](https://letsencrypt.org).
