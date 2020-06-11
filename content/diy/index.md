@@ -14,7 +14,7 @@ The FD Seminar runs on a cloud server with the following specifications:
 
 We found these to be **optimal** for running a **single BigBlueButton session** with **close to 100 participants**.
 
-[![28.05.2020](/img/grafana-28.05.2020.png)](/img/grafana-28.05.2020.png)
+[![11.06.2020](/img/grafana-11.06.2020.png)](/img/grafana-11.06.2020.png)
 
 Below I outline the steps followed to set up our BigBlueButton instance.
 
