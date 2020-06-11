@@ -3,7 +3,7 @@ title = "DIY BigBlueButton Server"
 type = "about"
 +++
 {{< note >}}
-**Last update:** 04.06.2020
+**Last update:** 11.06.2020
 {{< /note >}}
 
 # DIY BigBlueButton Server
