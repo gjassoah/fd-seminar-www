@@ -49,7 +49,7 @@ These are the specifications of our TURN server:
 
 ## Live streaming
 
-We use [OBS Studio](https://obsproject.com/) to stream the talks to an [RTMP server](https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol) which we set up following this [guide at the NGINX blog](https://www.nginx.com/blog/video-streaming-for-remote-learning-with-nginx/) and also [this guide](https://docs.peer5.com/guides/cors/) for configuring the CORS headers. We stream using [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP)) and [indigo-player](https://matvp91.github.io/indigo-player/#/).
+We use [OBS Studio](https://obsproject.com/) to stream the talks to an [RTMP server](https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol) which we set up following this [guide at the NGINX blog](https://www.nginx.com/blog/video-streaming-for-remote-learning-with-nginx/), see also [this guide](https://docs.peer5.com/guides/cors/) for configuring the CORS headers. We stream using [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP)) and [indigo-player](https://matvp91.github.io/indigo-player/#/).
 
 These are the specifications of our RTMP server:
 
