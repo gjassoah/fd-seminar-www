@@ -85,6 +85,8 @@ We manage our servers with [Ansible](https://www.ansible.com/); the playbooks be
 
 - hosts: bbb.fd-seminar.xyz
   become: yes
+  vars:
+    fqdn: bbb.fd-seminar.xyz
   tasks:
   - name: register cronjob for renewing letsencrypt certs
     cron:
@@ -146,7 +148,27 @@ We manage our servers with [Ansible](https://www.ansible.com/); the playbooks be
       update_cache: yes
 
   - name: restore BBBs FQDN
-    command: bbb-conf --setip bbb.fd-seminar.xyz
+    command: bbb-conf --setip {{ fqdn }}
+
+  - name: configure FreeSWITCH to support ipv6
+    copy:
+      src: files/nginx/bigbluebutton_sip_addr_map.conf
+      dest: /etc/nginx/conf.d/bigbluebutton_sip_addr_map.conf
+    # https://docs.bigbluebutton.org/2.2/troubleshooting.html#configure-bigbluebuttonfreeswitch-to-support-ipv6
+
+  - name: replace static ip (v4) by $freeswitch_addr (ipv4+ipv6) in nginx sip conf (for use with FreeSwitch)
+    lineinfile:
+      path: /etc/bigbluebutton/nginx/sip.nginx
+      regexp: 'proxy_pass'
+      line: 'proxy_pass https://$freeswitch_addr:7443;'
+      state: present
+
+  - name: enable 3pcc in FreeSWITCHipv6 sip profile
+    lineinfile:
+      path: /opt/freeswitch/etc/freeswitch/sip_profiles/external-ipv6.xml
+      regexp: '    <!--<param name="enable-3pcc" value="true"/>-->'
+      line: '    <param name="enable-3pcc" value="true"/>'
+      state: present
 
   - name: configure BBB to use our TURN server
     copy:
@@ -259,6 +281,12 @@ We manage our servers with [Ansible](https://www.ansible.com/); the playbooks be
 
   - name: restart BigBlueButton
     command: bbb-conf --restart
+    
+  - name: restart nginx
+    service:
+      name: nginx
+      state: restarted
+      enabled: yes    
 {{< / highlight >}}
 
 ### Updating Greenlight
