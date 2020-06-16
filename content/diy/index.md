@@ -406,6 +406,12 @@ We manage our servers with [Ansible](https://www.ansible.com/); the playbooks be
       name: coturn
       state: present
 
+  - name: set TLS listening port to port 443 (to bypass firewalls)
+    lineinfile:
+      path: /etc/turnserver.conf
+      regexp: 'tls-listening-port=.*'
+      line: 'tls-listening-port=443'
+
   - name: enable fingerprints in TURN messages
     lineinfile:
       path: /etc/turnserver.conf
