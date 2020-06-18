@@ -32,7 +32,7 @@ If you experience problems registering or using BigBlueButton, please read the t
 {{< note >}}We **strongly recommend** to use the latest version of the following web browsers when joining the FD Seminar:
 * *On desktop:* [Google Chrome](https://www.google.com/chrome/)/Chromium or [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/) 
 * *On iOS:* [Safari](https://www.apple.com/safari/)
-* *On Android:* [Google Chrome](https://www.google.com/chrome/)/Chromium or [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/){{< /note >}}
+* *On Android:* [Google Chrome](https://www.google.com/chrome/){{< /note >}}
 
 ### Live stream
 
