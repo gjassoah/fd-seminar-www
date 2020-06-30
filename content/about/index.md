@@ -25,7 +25,7 @@ Please send your comments and suggestions (including suggestions of potential sp
 
 The FD Seminar runs on [BigBlueButton](https://bigbluebutton.org/), an open-source web conferencing system.  The simplest way to join the talks is using the direct link and access code which are distributed through [our mailing list](https://listen.uni-bonn.de/wws/info/fd-seminar).
 
-Although you do not need to register to attend talks in the seminar, creating an account in [our BigBlueButton instance](https://bbb.fd-seminar.xyz) will allow you to watch the recordings of previous talks. We will also use the mailing list to inform you if the upcoming speaker wishes to have their talk recorded; please take this into consideration when deciding to attend the talk.
+Although you do not need to register to attend talks in the seminar, creating an account in [our BigBlueButton instance](https://bbb.fd-seminar.xyz) will allow you to watch the recordings of previous talks.
 
 If you experience problems registering or using BigBlueButton, please read the troubleshooting information [below](/about/#troubleshooting).
 
@@ -54,11 +54,12 @@ When submitting your abstract, please include a list of up to five keywords; the
 ```
 is displayed as \\[ \operatorname{Ext}_A^1(M,N)\cong D\operatorname{\overline{Hom}}_A(N,\tau M), \\]
 while `\\( \operatorname{mod}A \\)` will be rendered inline as \\(\operatorname{mod}A\\) (note the double backslashes).
+
 ### Recordings 
 
-By default, talks will not be recorded. If you are interested in your talk being recorded please let us know in advance so we can inform the participants of this through our mailing list. The recording will then be hosted in our BigBlueButton instance, where it can be viewed by any registered user. As a speaker, you retain ownership of the recording and can request its removal from our server at any point.
+By default, talks will not be recorded. If you are interested in your talk being recorded please let us know in advance. The recording will then be hosted in our BigBlueButton instance, where it can be viewed by any registered user. As a speaker, you retain ownership of the recording and can request its removal from our server at any point.
 
-We are also happy to provide you with a recording of your talk. Due to technical limitations, it is not possible to download recordings from BigBlueButton; a second recording will be produced with [OBS Studio](https://obsproject.com/) for this purpose.
+We are also happy to provide you with a recording of your talk. Due to technical limitations, it is not possible to download recordings from BigBlueButton; a second recording will be produced with [OBS Studio](https://obsproject.com/) for this purpose. Let us know if you need such copy.
 
 Thank you for contributing to the FD Seminar!
 
