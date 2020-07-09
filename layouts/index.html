@@ -5,6 +5,10 @@
 {{ define "content" }}
 {{ partial "announcements.html" . }}
 
+<div id="link-to-fd-seminar-room" class="navigation">
+    <a href="https://bbb.fd-seminar.xyz/b/org-hdq-4ap">Go to the FD Seminar room (access code required)</a>
+</div>
+
 {{ $pages := .Paginate (where (where site.RegularPages "Type" "talks").ByDate ".Date" ">" now) }}
 <div class="upcoming-talk">
     <h3>Next talk</h3>
@@ -32,10 +36,6 @@
         {{ .Content }}
     </div>
     {{ end }}
-</div>
-
-<div id="link-to-fd-seminar-room" class="navigation">
-    <a href="https://bbb.fd-seminar.xyz/b/org-hdq-4ap">Go to the FD Seminar room (access code required)</a>
 </div>
 
 {{ partial "about-info.html" . }}
