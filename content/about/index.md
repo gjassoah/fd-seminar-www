@@ -23,7 +23,7 @@ Please send your comments and suggestions (including suggestions of potential sp
 
 ### Funding
 
-For the first two years, the FD Seminar is funded by the [Hausdorff Center of Mathematics](https://www.hcm.uni-bonn.de/) of the [Rheinische Friedrich-Wilhelms-Universität Bonn](https://www.uni-bonn.de/).
+For the first two years, the FD Seminar is funded by the [Hausdorff Center for Mathematics](https://www.hcm.uni-bonn.de/) of the [Rheinische Friedrich-Wilhelms-Universität Bonn](https://www.uni-bonn.de/).
 
 ## Information for participants
 
