@@ -21,6 +21,10 @@ The seminar is organised by
 
 Please send your comments and suggestions (including suggestions of potential speakers) by e-mail to [organisers@fd-seminar.xyz](mailto:organisers@fd-seminar.xyz).
 
+### Funding
+
+For the first two years, the FD Seminar is funded by the [Hausdorff Center of Mathematics](https://www.hcm.uni-bonn.de/) of the [Rheinische Friedrich-Wilhelms-Universität Bonn](https://www.uni-bonn.de/).
+
 ## Information for participants
 
 The FD Seminar runs on [BigBlueButton](https://bigbluebutton.org/), an open-source web conferencing system.  The simplest way to join the talks is using the direct link and access code which are distributed through [our mailing list](https://listen.uni-bonn.de/wws/info/fd-seminar).
