@@ -3,13 +3,18 @@
     <div class="post__meta-item" style="position: relative;">
         {{ $date := .Date.Format "2006-01-02" }}
         {{ $notes := printf "%s" ".pdf" | printf "%s%s" $date | printf "%s%s" "static/pdf/talks/" }}
-        {{ if (fileExists $notes ) -}}
         <div style="display: inline-block; position: absolute; right: 0;">
+            {{ if (fileExists $notes ) -}}
             <code>
                 <a href="{{ .Site.BaseURL }}/pdf/talks/{{ .Date.Format "2006-01-02" }}.pdf" style="color: inherit;">Slides <i class="fas fa-file-download"></i></a>
             </code>
+            {{ end }}
+            {{ if .Params.videourl }}
+            <code>
+                <a href="{{ .Params.videourl }}" style="color: inherit;">Video <i class="fas fa-video"></i></a>
+            </code>
+            {{ end }}
         </div>
-        {{ end }}
         <i class="fas fa-user"></i> <a href="{{ .Params.speaker.Homepage }}">{{ .Params.speaker.Name }}</a>
     </div>
     {{ if .Params.Affiliation }}

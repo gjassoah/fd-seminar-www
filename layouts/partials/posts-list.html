@@ -9,18 +9,18 @@
         </script>
         {{ end }}
         {{ $notes := printf "%s" ".pdf" | printf "%s%s" $date | printf "%s%s" "static/pdf/talks/" }}
-        {{ if (fileExists $notes ) -}}
         <div style="display: inline-block; position: absolute; right: 0;">
+            {{ if (fileExists $notes ) -}}
             <code>
                 <a href="{{ .Site.BaseURL }}/pdf/talks/{{ $date }}.pdf" style="color: inherit;">Slides <i class="fas fa-file-download"></i></a>
             </code>
+            {{ end }}
             {{ if .Params.videourl }}
             <code>
                 <a href="{{ .Params.videourl }}" style="color: inherit;">Video <i class="fas fa-video"></i></a>
             </code>
             {{ end }}
         </div>
-        {{ end }}
     </div>
     <div class="list__title--small">
         <a href="{{ .RelPermalink }}" {{if .Draft}}class="draft"{{end}}>{{ .Title }}</a>
