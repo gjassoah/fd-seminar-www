@@ -14,6 +14,11 @@
             <code>
                 <a href="{{ .Site.BaseURL }}/pdf/talks/{{ $date }}.pdf" style="color: inherit;">Slides <i class="fas fa-file-download"></i></a>
             </code>
+            {{ if .Params.videourl }}
+            <code>
+                <a href="{{ .Params.videourl }}" style="color: inherit;">Video <i class="fas fa-video"></i></a>
+            </code>
+            {{ end }}
         </div>
         {{ end }}
     </div>
