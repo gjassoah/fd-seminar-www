@@ -25,6 +25,12 @@ Please send your comments and suggestions (including suggestions of potential sp
 
 For the first two years, the FD Seminar is funded by the [Hausdorff Center for Mathematics](https://www.hcm.uni-bonn.de/) of the [Rheinische Friedrich-Wilhelms-Universität Bonn](https://www.uni-bonn.de/).
 
+### Group photo
+
+Thank you to Bernhard Keller for providing the following group photo, taken after his talk on 03.09.2020 to commemorate the resumption of the FD Seminar after the summer break.
+
+[![03.09.2020](/img/group-photo-03.09.2020.jpg)](/img/group-photo-03.09.2020.jpg)
+
 ## Information for participants
 
 The FD Seminar runs on [BigBlueButton](https://bigbluebutton.org/), an open-source web conferencing system.  The simplest way to join the talks is using the direct link and access code which are distributed through [our mailing list](https://listen.uni-bonn.de/wws/info/fd-seminar).
