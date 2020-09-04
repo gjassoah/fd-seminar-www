@@ -30,6 +30,7 @@
         <script>
          document.write(moment.utc({{ .Date }}).local().format('MMMM Do, YYYY @ h:mm a'));
         </script>
+        in <b>your</b> local time zone
     </div>
     </div>
     <div class="abstract">
@@ -65,6 +66,7 @@
             <script>
              document.write(moment.utc({{ .Date }}).local().format('MMMM Do, YYYY @ h:mm a'));
             </script>
+            in <b>your</b> local time zone
         </div>
     </div>
     {{ end }}
