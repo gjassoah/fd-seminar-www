@@ -28,6 +28,7 @@
     <script>
      document.write(moment.utc({{ .Date }}).local().format('MMMM Do, YYYY @ h:mm a'));
     </script>
+    in <b>your</b> local time zone
     {{ end }}
     <!-- categories -->
     {{ with .Params.categories }}
