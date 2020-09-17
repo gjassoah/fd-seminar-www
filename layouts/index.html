@@ -13,10 +13,24 @@
 <div class="upcoming-talk">
     <h3>Next talk</h3>
     {{ range first 1 $pages.Pages }}
+    {{ $date := .Date.Format "2006-01-02" }}
     <div>
         <h1>{{ .Title }}</h1>
     </div>
-    <div class="post__meta">
+    <div class="post__meta" style="position: relative;">
+        {{ $notes := printf "%s" ".pdf" | printf "%s%s" $date | printf "%s%s" "static/pdf/talks/" }}
+        <div style="position: absolute; right: 0;">
+            {{ if (fileExists $notes ) -}}
+            <code>
+                <a href="{{ .Site.BaseURL }}/pdf/talks/{{ $date }}.pdf" style="color: inherit;">Slides <i class="fas fa-file-download"></i></a>
+            </code>
+            {{ end }}
+            {{ if .Params.videourl }}
+            <code>
+                <a href="{{ .Params.videourl }}" style="color: inherit;">Video <i class="fas fa-video"></i></a>
+            </code>
+            {{ end }}
+        </div>
     <div>
         <i class="fas fa-user"></i> <a href="{{ .Params.speaker.Homepage }}">{{ .Params.speaker.Name }}</a>
     </div>
