@@ -16,7 +16,7 @@ We found these to be **optimal** for running a **single BigBlueButton session** 
 
 [![11.06.2020](/img/grafana-11.06.2020.png)](/img/grafana-11.06.2020.png)
 
-Below I outline the steps followed to set up our BigBlueButton instance.
+Below I outline the steps followed to set up our BigBlueButton instance. 
 
 Happy hacking!
 
