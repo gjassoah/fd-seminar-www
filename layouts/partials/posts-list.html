@@ -23,6 +23,9 @@
         </div>
     </div>
     <div class="list__title--small">
+        {{ if .Params.Icra2020 }}
+        <h5 style="font-weight: normal; margin-bottom: 0em; margin-top: -0.25em;">ICRA 2020 Research Snapshot</h5>
+        {{ end }}
         <a href="{{ .RelPermalink }}" {{if .Draft}}class="draft"{{end}}>{{ .Title }}</a>
     </div>
     <div class="post__meta">

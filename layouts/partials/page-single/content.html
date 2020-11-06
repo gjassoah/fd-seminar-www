@@ -1,6 +1,9 @@
 {{ $include_toc := .Params.include_toc}}
 <article>
-  <header>
+    <header>
+    {{ if .Params.Icra2020 }}
+    <h3 style="font-weight: normal; margin-bottom: -1em;">ICRA 2020 Research Snapshot</h3>
+    {{ end }}
     <h1>{{ .Title }}</h1>
     {{ with .Params.subtitle }}
     <span class="post__subtitle">

@@ -12,9 +12,12 @@
 {{ $pages := .Paginate (where (where site.RegularPages "Type" "talks").ByDate ".Date" ">" now) }}
 <div class="upcoming-talk">
     <h3>Next talk</h3>
-    {{ range first 1 $pages.Pages }}
+    {{ range first 2 $pages.Pages }}
     {{ $date := .Date.Format "2006-01-02" }}
     <div>
+        {{ if .Params.Icra2020 }}
+        <h4 style="margin-bottom: -1em;">ICRA 2020 Research Snapshot</h4>
+        {{ end }}
         <h1>{{ .Title }}</h1>
     </div>
     <div class="post__meta" style="position: relative;">
@@ -62,8 +65,11 @@
 <div class="future-talks">
     <h3>Upcoming talks</h3>
     Click on the title to see the abstract.
-    {{ range after 1 $pages.Pages }}
+    {{ range after 2 $pages.Pages }}
     <div>
+        {{ if .Params.Icra2020 }}
+        <h5 style="font-weight: normal; margin-bottom: -1.5em;">ICRA 2020 Research Snapshot</h5>
+        {{ end }}
         <h1><a href="{{ .Permalink }}" class="future-talk-link">{{ .Title }}</a></h1>
     </div>
     <div class="post__meta">
