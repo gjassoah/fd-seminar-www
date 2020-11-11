@@ -137,7 +137,7 @@ Our website is built with [Hugo](https://gohugo.io/), an open-source static webs
 
 The source code for the website is available [here](https://git.sr.ht/~gjasso/fd-seminar-www).
 
-> Due to an influx of spam registrations to our BigBlueButton instance, we added a [reCAPTCHA](https://www.google.com/recaptcha/about/) widget to the registration form. If you are already registered, this will not affect you; if not, please take this into account when registering to our server.
+> Due to an influx of spam registrations to our BigBlueButton instance, we added a [reCAPTCHA](https://www.google.com/recaptcha/about/) widget (provided by Google) to the registration form. If you are already registered, this will not affect you; if not, please take this into account when registering to our server.
 
 ### Server
 
