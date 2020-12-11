@@ -1,7 +1,11 @@
+{{ $counter := len . }}
+{{ $counter = add $counter 1 }}
 {{ range . }}
+{{ $counter = sub $counter 1 }}
 {{ $date := .Date.Format "2006-01-02" }}
 <li id="{{ $date }}">
     <div style="position: relative;">
+        Talk no. {{ $counter }} - 
         <!-- published date -->
         {{ if not .Date.IsZero }}
         <script>
