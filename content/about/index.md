@@ -27,7 +27,7 @@ For the first two years, the FD Seminar is funded by the [Hausdorff Center for M
 
 ### Group photo
 
-Thank you to Bernhard Keller for providing the following group photo, taken after his talk on 03.09.2020 to commemorate the resumption of the FD Seminar after the summer break.
+We thank Bernhard Keller for providing the following group photo, taken after his talk on 03.09.2020 to commemorate the resumption of the FD Seminar after the summer break.
 
 [![03.09.2020](/img/group-photo-03.09.2020.jpg)](/img/group-photo-03.09.2020.jpg)
 
