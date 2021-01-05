@@ -1,0 +1,4 @@
++++
+type = "announcement"
+outputs = ["txt"]
++++

@@ -6,7 +6,13 @@ buildFuture = true
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
-  
+
+[outputFormats]
+  [outputFormats.txt]
+    baseName    = "announcement"
+    mediaType   = "text/plain"
+    isPlainText = true
+
 [params]
   description = "Online seminar on representation theory of finite-dimensional algebras"
   postNavigation = true
