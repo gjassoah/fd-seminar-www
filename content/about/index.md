@@ -127,6 +127,13 @@ You can then click on the 'Join audio' button (marked with a crossed-out phone) 
 
 Alternatively, you can reload the page in your web browser and select to join the audio session by **Microphone**.
 
+#### Mac OS users
+
+Please take the following information into account in case you wish to share your webcam or use your microphone during the talks.
+
+* Mac OS Catalina users: [Allow BigBlueButton to access your microphone, webcam or screen](https://support.blindsidenetworks.com/hc/en-us/articles/360034998951-Mac-OS-Catalina-Update-BigBlueButton-Media-Permissions)
+* All Mac OS users: [I am still unable to join with audio in BigBlueButton](https://support.blindsidenetworks.com/hc/en-us/articles/360018997931-After-allowing-the-browser-permissions-on-Mac-OS-I-am-still-unable-to-join-my-audio-in-BigBlueButton-)
+
 ### Mailing list
 
 Our mailing list is hosted at the [Hochschulrechenzentrum der Universität Bonn](http://www.hrz.uni-bonn.de/). To prevent [Zoombombing](https://en.wikipedia.org/wiki/Zoombombing) all registrations must be approved manually by an administrator. We ask you to use the name you normally use to identify yourself within our community as well as as your institutional email address; if you do not have one, please write to [admin@fd-seminar.xyz](mailto:admin@fd-seminar.xyz). Thank you for your understanding.
