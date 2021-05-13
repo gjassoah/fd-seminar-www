@@ -83,27 +83,29 @@ We manage our servers with [Ansible](https://www.ansible.com/); the playbooks be
 # https://docs.bigbluebutton.org/2.2/install.html
 # https://docs.bigbluebutton.org/2.2/customize.html
 
-- hosts: bbb.fd-seminar.xyz
+- hosts: BBB server's hostname
   become: yes
   vars:
-    fqdn: bbb.fd-seminar.xyz
+    fqdn: FQDN of your BBB server
+    fqdn-turn: FQDN of your turn server
+    ssh-port: 22
   tasks:
-  - name: register cronjob for renewing letsencrypt certs
+  - name: register cronjob for updating let's encrypt certificates
     cron:
       name: "renew letsencrypt certs"
       minute: "30"
       hour: "2"
-      weekday: "1"      
+      weekday: "1"
       job: "/usr/bin/certbot renew >> /var/log/le-renew.log"
 
-  - name: register cronjob for restarting nginx after renewing letsencrypt certs
+  - name: register cronjob for restarting nginx updating let's encrypt certificates
     cron:
       name: "restart nginx after renewing letsencrypt certs"
       minute: "35"
       hour: "2"
       weekday: "1"
       job: "/bin/systemctl reload nginx"
-      
+
   - name: deny all incoming connections
     ufw:
       default: deny
@@ -114,11 +116,10 @@ We manage our servers with [Ansible](https://www.ansible.com/); the playbooks be
       default: allow
       direction: outgoing
 
-  - name: allow connections to port 22 (SSH) 
+  - name: allow connections to required port (SSH) 
     ufw:
       rule: allow
-      port: '22'
-      # use a different port for added security 
+      port: '{{ ssh-port }}'
 
   - name: allow connections to port 80 (HTTP)
     ufw:
@@ -147,16 +148,15 @@ We manage our servers with [Ansible](https://www.ansible.com/); the playbooks be
       upgrade: dist
       update_cache: yes
 
-  - name: restore BBBs FQDN
+  - name: restore FQDN
     command: bbb-conf --setip {{ fqdn }}
 
   - name: configure FreeSWITCH to support ipv6
     copy:
       src: files/nginx/bigbluebutton_sip_addr_map.conf
       dest: /etc/nginx/conf.d/bigbluebutton_sip_addr_map.conf
-    # https://docs.bigbluebutton.org/2.2/troubleshooting.html#configure-bigbluebuttonfreeswitch-to-support-ipv6
 
-  - name: replace static ip (v4) by $freeswitch_addr (ipv4+ipv6) in nginx sip conf (for use with FreeSwitch)
+  - name: replace static ip (v4) by $freeswitch_addr (ipv4+ipv6) in nginx configuration file for use with FreeSWITCH
     lineinfile:
       path: /etc/bigbluebutton/nginx/sip.nginx
       regexp: 'proxy_pass'
@@ -170,45 +170,58 @@ We manage our servers with [Ansible](https://www.ansible.com/); the playbooks be
       line: '    <param name="enable-3pcc" value="true"/>'
       state: present
 
-  - name: configure BBB to use our TURN server
+  - name: configure TURN server
     copy:
       src: files/coturn/turn-stun-servers.xml
       dest: /usr/share/bbb-web/WEB-INF/classes/spring/turn-stun-servers.xml
       owner: bigbluebutton
       group: bigbluebutton
       mode: u=rw,g=r,o=r
-    # https://docs.bigbluebutton.org/2.2/setup-turn-server.html#configure-bigbluebutton-to-use-the-coturn-server
-   
+
+  - name: configure FreeSWITCH to use own TURN server (rtp)
+    lineinfile:
+      path: /opt/freeswitch/etc/freeswitch/vars.xml
+      regexp: 'external_rtp_ip=stun:'
+      line: '  <X-PRE-PROCESS cmd="set" data="external_rtp_ip=stun:{{ fqdn-turn }}"/>'
+      state: present
+
+  - name: configure FreeSWITCH to use own TURN server (sip)
+    lineinfile:
+      path: /opt/freeswitch/etc/freeswitch/vars.xml
+      regexp: 'external_sip_ip=stun:'
+      line: '  <X-PRE-PROCESS cmd="set" data="external_sip_ip=stun:{{ fqdn-turn }}"/>'
+      state: present
+
   - name: get local username
     local_action: command whoami
     become: no
     register: local_user
 
-  - name: retrieve current TURN server static auth secret
-    shell: "ssh {{ local_user.stdout }}@turn.fd-seminar.xyz cat /etc/turnserver.conf | grep static-auth-secret= | awk -F '=' '{print $NF}'"
+  - name: retrieve current TURN static auth secret
+    shell: ssh {{ local_user.stdout }}@{{ fqdn-turn }} cat /etc/turnserver.conf | grep static-auth-secret= | awk -F '=' '{print $NF}'
     register: current_secret
     delegate_to: 127.0.0.1
     become_user: "{{ local_user.stdout }}"
 
-  - name: update TURN server static auth secret in BBBs conf
+  - name: update TURN static auth secret
     replace:
       path: /usr/share/bbb-web/WEB-INF/classes/spring/turn-stun-servers.xml
       regexp: 'STATIC_AUTH_SECRET'
       replace: "{{ current_secret.stdout }}"
 
-  - name: set URL for default presentation in BBB sessions
+  - name: set URL for default presentation
     replace:
       path: /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
       regexp: 'beans.presentationService.defaultUploadedPresentation=.*'
-      replace: 'beans.presentationService.defaultUploadedPresentation=https://www.fd-seminar.xyz/pdf/bbb-howto.pdf'
+      replace: 'beans.presentationService.defaultUploadedPresentation=https://www.fd-seminar.xyz/pdf/bbb-welcome.pdf'
 
-  - name: set default welcome message in BBB sessions
+  - name: set default welcome message
     replace:
       path: /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
       regexp: 'defaultWelcomeMessage=.*'
-      replace: 'defaultWelcomeMessage=Welcome to <b>%%CONFNAME%%</b>!<br><br>A live stream of the talk is also available at <a href="https://www.fd-seminar.xyz/live" target="_blank"><u>https://www.fd-seminar.xyz/live</u></a><br><br>Username: fd-seminar<br>Password: access code for this meeting'
+      replace: 'defaultWelcomeMessage=Welcome to <b>%%CONFNAME%%</b>!<br/><br/>A live stream of the talk is also available at <a href="https://www.fd-seminar.xyz/live" target="_blank"><u>https://www.fd-seminar.xyz/live</u></a><br/><br/>Username: fd-seminar<br/>Password: access code for this meeting<br/><br/>Minimal instructions on how to use BigBlueButton are available <a href="https://www.fd-seminar.xyz/pdf/bbb-howto.pdf">here</a>'
 
-  - name: set default welcome message (footer) in BBB sessions
+  - name: set default welcome message (footer)
     replace:
       path: /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
       regexp: 'defaultWelcomeMessageFooter=.*'
@@ -232,13 +245,13 @@ We manage our servers with [Ansible](https://www.ansible.com/); the playbooks be
       regexp: 'muteOnStart=.*'
       replace: 'muteOnStart=true'
 
-  - name: force BBB HTML5 client (participants)
+  - name: force HTML5 client (participants)
     replace:
       path: /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
       regexp: 'attendeesJoinViaHTML5Client=.*'
       replace: 'attendeesJoinViaHTML5Client=true'
 
-  - name: force BBB HTML5 client (moderators)
+  - name: force HTML5 client (moderators)
     replace:
       path: /usr/share/bbb-web/WEB-INF/classes/bigbluebutton.properties
       regexp: 'moderatorsJoinViaHTML5Client=.*'
@@ -256,7 +269,7 @@ We manage our servers with [Ansible](https://www.ansible.com/); the playbooks be
       regexp: '      <param name="unmuted-sound" value="conference/conf-unmuted.wav"/>'
       replace: '      <!-- <param name="unmuted-sound" value="conference/conf-unmuted.wav"/> -->'
 
-  - name: set camera defaults to reduced bitrates (to reduce bandwidth)
+  - name: set camera defaults
     shell: >
       yq w -i /usr/share/meteor/bundle/programs/server/assets/app/config/settings.yml public.kurento.cameraProfiles.[0].bitrate 50
       yq w -i /usr/share/meteor/bundle/programs/server/assets/app/config/settings.yml public.kurento.cameraProfiles.[1].bitrate 100
@@ -267,26 +280,32 @@ We manage our servers with [Ansible](https://www.ansible.com/); the playbooks be
       yq w -i /usr/share/meteor/bundle/programs/server/assets/app/config/settings.yml public.kurento.cameraProfiles.[2].default false
       yq w -i /usr/share/meteor/bundle/programs/server/assets/app/config/settings.yml public.kurento.cameraProfiles.[3].default false
 
-  - name: delete raw data from unpublished recordings after 2 days
+  - name: delete raw data from unpublished recordings after 3 days
     replace:
       path: /etc/cron.daily/bigbluebutton
       regexp: 'recorded_days=.*'
-      replace: 'recorded_days=2'
+      replace: 'recorded_days=3'
 
-  - name: delete raw data from published recordings after 2 days
+  - name: delete raw data from published recordings after 3 days
     replace:
       path: /etc/cron.daily/bigbluebutton
       regexp: 'published_days=.*'
-      replace: 'published_days=2'
+      replace: 'published_days=3'
+
+  - name: disable echo test
+    replace:
+      path: /usr/share/meteor/bundle/programs/server/assets/app/config/settings.yml
+      regexp: '    skipCheck:.*'
+      replace: '    skipCheck: true'
 
   - name: restart BigBlueButton
     command: bbb-conf --restart
-    
+
   - name: restart nginx
     service:
       name: nginx
       state: restarted
-      enabled: yes    
+      enabled: yes
 {{< / highlight >}}
 
 ### Updating Greenlight
@@ -332,8 +351,10 @@ We manage our servers with [Ansible](https://www.ansible.com/); the playbooks be
 {{< highlight yaml >}}
 # https://docs.bigbluebutton.org/2.2/setup-turn-server.html
 
-- hosts: turn.fd-seminar.xyz
+- hosts: TURN server's hostname
   become: yes
+  vars:
+    ssh-port: 22
   tasks:
   - name: deny all incoming connections
     ufw:
@@ -345,17 +366,10 @@ We manage our servers with [Ansible](https://www.ansible.com/); the playbooks be
       default: allow
       direction: outgoing
 
-  - name: allow connections to port 22 (SSH)
+  - name: allow connections to required port (SSH)
     ufw:
       rule: allow
-      port: '22'
-      # use a different port for added security
-
-  - name: allow connections to port 80 (HTTP)
-    ufw:
-      rule: allow
-      port: '80'
-      proto: tcp
+      port: '{{ ssh-port }}'
 
   - name: allow connections to port 443/tcp (TLS)
     ufw:
@@ -455,14 +469,14 @@ We manage our servers with [Ansible](https://www.ansible.com/); the playbooks be
     lineinfile:
       path: /etc/turnserver.conf
       regexp: 'cert=.*'
-      line: 'cert=<path to certificate file>'
+      line: 'cert=/etc/letsencrypt/live/TURN-SERVER-URL/fullchain.pem'
       state: present
 
   - name: set path to let's encrypt private key
     lineinfile:
       path: /etc/turnserver.conf
       regexp: 'pkey=.*'
-      line: 'pkey=<path to certificate private key>'
+      line: 'pkey=/etc/letsencrypt/live/TURN-SERVER-URL/privkey.pem'
       state: present
 
   - name: limit the allowed ciphers
@@ -500,7 +514,7 @@ We manage our servers with [Ansible](https://www.ansible.com/); the playbooks be
       line: 'no-tlsv1'
       state: present
 
-  - name: disable TLS/DTLS protocols v1_1
+  - name: disable TLS/DTLS protocols v1.1
     lineinfile:
       path: /etc/turnserver.conf
       regexp: '#no-tlsv1_1'
@@ -521,8 +535,7 @@ We manage our servers with [Ansible](https://www.ansible.com/); the playbooks be
       owner: root
       group: root
       mode: u=rw,g=r,o=r
-    # https://docs.bigbluebutton.org/2.2/setup-turn-server.html#configure-log-rotation
-    
+
   - name: enable coturn service in conf file
     lineinfile:
       path: /etc/default/coturn
