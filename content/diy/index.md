@@ -87,8 +87,8 @@ We manage our servers with [Ansible](https://www.ansible.com/); the playbooks be
   become: yes
   vars:
     fqdn: FQDN of your BBB server
-    fqdn-turn: FQDN of your turn server
-    ssh-port: 22
+    fqdn_turn: FQDN of your turn server
+    custom_ssh_port: 22
   tasks:
   - name: register cronjob for updating let's encrypt certificates
     cron:
@@ -119,7 +119,7 @@ We manage our servers with [Ansible](https://www.ansible.com/); the playbooks be
   - name: allow connections to required port (SSH) 
     ufw:
       rule: allow
-      port: '{{ ssh-port }}'
+      port: '{{ custom_ssh_port }}'
 
   - name: allow connections to port 80 (HTTP)
     ufw:
@@ -182,14 +182,14 @@ We manage our servers with [Ansible](https://www.ansible.com/); the playbooks be
     lineinfile:
       path: /opt/freeswitch/etc/freeswitch/vars.xml
       regexp: 'external_rtp_ip=stun:'
-      line: '  <X-PRE-PROCESS cmd="set" data="external_rtp_ip=stun:{{ fqdn-turn }}"/>'
+      line: '  <X-PRE-PROCESS cmd="set" data="external_rtp_ip=stun:{{ fqdn_turn }}"/>'
       state: present
 
   - name: configure FreeSWITCH to use own TURN server (sip)
     lineinfile:
       path: /opt/freeswitch/etc/freeswitch/vars.xml
       regexp: 'external_sip_ip=stun:'
-      line: '  <X-PRE-PROCESS cmd="set" data="external_sip_ip=stun:{{ fqdn-turn }}"/>'
+      line: '  <X-PRE-PROCESS cmd="set" data="external_sip_ip=stun:{{ fqdn_turn }}"/>'
       state: present
 
   - name: get local username
@@ -198,7 +198,7 @@ We manage our servers with [Ansible](https://www.ansible.com/); the playbooks be
     register: local_user
 
   - name: retrieve current TURN static auth secret
-    shell: ssh {{ local_user.stdout }}@{{ fqdn-turn }} cat /etc/turnserver.conf | grep static-auth-secret= | awk -F '=' '{print $NF}'
+    shell: ssh {{ local_user.stdout }}@{{ fqdn_turn }} cat /etc/turnserver.conf | grep static-auth-secret= | awk -F '=' '{print $NF}'
     register: current_secret
     delegate_to: 127.0.0.1
     become_user: "{{ local_user.stdout }}"
@@ -354,7 +354,7 @@ We manage our servers with [Ansible](https://www.ansible.com/); the playbooks be
 - hosts: TURN server's hostname
   become: yes
   vars:
-    ssh-port: 22
+    custom_ssh_port: 22
   tasks:
   - name: deny all incoming connections
     ufw:
@@ -369,7 +369,7 @@ We manage our servers with [Ansible](https://www.ansible.com/); the playbooks be
   - name: allow connections to required port (SSH)
     ufw:
       rule: allow
-      port: '{{ ssh-port }}'
+      port: '{{ custom_ssh_port }}'
 
   - name: allow connections to port 443/tcp (TLS)
     ufw:
