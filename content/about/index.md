@@ -44,15 +44,6 @@ If you experience problems registering or using BigBlueButton, please read the t
 * **iOS:** [Safari](https://www.apple.com/safari/)
 * **Android:** [Google Chrome](https://www.google.com/chrome/){{< /note >}}
 
-[//]: # (
-### Live stream
-
-The talks will also be [live-streamed](https://www.fd-seminar.xyz/live). The login credentials for accessing the live stream are as follows:
-```
-username: fd-seminar
-password: access code for the BigBlueButton session
-```
-)
 
 ## Information for speakers
 
