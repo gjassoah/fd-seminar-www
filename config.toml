@@ -5,7 +5,7 @@ theme = "hyde-hyde"
 buildFuture = true
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "JSON"]
 
 [outputFormats]
   [outputFormats.txt]
