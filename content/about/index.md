@@ -13,7 +13,7 @@ The seminar takes place every Thursday at 13:00 UTC during Summer Time and 14:00
 The seminar is organised by
 
 - [Eleonore Faber](http://www1.maths.leeds.ac.uk/~pmtemf/) (Leeds)
-- [Gustavo Jasso](http://www.math.uni-bonn.de/people/gjasso/) (Bonn)
+- [Gustavo Jasso](https://gustavo.jasso.info) (Lund)
 - [Ryan Kinser](https://homepage.math.uiowa.edu/~rkinser/) (Iowa)
 - [Julian Külshammer](https://katalog.uu.se/profile/?id=N18-1115) (Uppsala)
 - [Rosanna Laking](http://profs.scienze.univr.it/laking/) (Verona)
