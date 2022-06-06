@@ -44,12 +44,19 @@ If you experience problems registering or using BigBlueButton, please read the t
 * **iOS:** [Safari](https://www.apple.com/safari/)
 * **Android:** [Google Chrome](https://www.google.com/chrome/){{< /note >}}
 
+Using other web browsers is likely to cause technical problems.
 
 ## Information for speakers
 
 We recommend that you create an account in [our BigBlueButton instance](https://bbb.fd-seminar.xyz). Please inform us after you do so; we will then give your account the role of 'speaker' so you can test-drive the software before your talk. During your talk you will be able to upload a PDF file which will be shown in the participants' screens (for example, a LaTeX beamer presentation). This is much less resource-intensive than sharing your screen with the PDF file open in your own computer. BigBlueButton provides basic annotation functionalities which we encourage you to experiment with before your talk. We also suggest that you allow us to make your PDF file available for download as it will be helpful for participants to have access to it in a different application during your talk; this can be done directly through BigBlueButton during the talk.
 
 In addition, BigBlueButton provides the usual web-conferencing functionalities: public and private chat, screen sharing, polling, status icons, etc. We recommend you to watch some of the [video tutorials](https://bigbluebutton.org/html5/) for more details.
+
+### Using an iPad to give your talk
+
+While it is possible to give your talk using an iPad, it is not possible to share your iPad's screen directly through BigBlueButton: you will need to share your iPad's screen to your computer first and then join the FD Seminar room with your computer (not with your iPad) so that you can share the relevant window on your computer. Here are some [instructions for sharing your iPad's screen to a Mac computer](https://support.blindsidenetworks.com/hc/en-us/articles/4407788663309-How-to-mirror-your-iPad-iPhone-screen-to-a-Mac-computer-with-QuickTime) using QuickTime (pre-installed).
+
+### Abstract
 
 When submitting your abstract, please include a list of up to five keywords; these will help us improve the results of our search function in the long term. Mathematical symbols are rendered using \\(\KaTeX\\); see [here](https://katex.org/docs/supported.html) for the list of available \\(\TeX\\) functions. For example,
 ```
