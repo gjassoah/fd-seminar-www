@@ -220,6 +220,10 @@ div.post__related {
     margin-top: 3.5rem;
 }
 
+.content {
+    padding-top: 0;
+}
+
 .contents {
     margin-bottom: 0;
 }
