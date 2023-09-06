@@ -3,3 +3,5 @@ _org/*
 public/*
 resources/*
 _*/*
+.hugo_build.lock
+*~undo-tree~
