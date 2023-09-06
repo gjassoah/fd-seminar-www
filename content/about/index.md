@@ -142,13 +142,13 @@ Our mailing list is hosted at the [Hochschulrechenzentrum der Universität Bonn]
 
 Our website is built with [Hugo](https://gohugo.io/), an open-source static website generator; it uses a modified version of the [Hyde-Hyde theme](https://themes.gohugo.io/hyde-hyde/) by [htr3n](https://htr3n.github.io/) as well as [Google Fonts](https://fonts.google.com/). We use JavaScript for [displaying times in your local timezone](https://momentjs.com/), [rendering mathematical formulae](https://katex.org/), [searching the talk archive](https://fusejs.io/), and [displaying the map of speakers](https://leafletjs.com/) in the archives.
 
-The source code for the website is available [here](https://git.sr.ht/~gjasso/fd-seminar-www).
+The source code for the website is available [here](https://github.com/gjassoah/fd-seminar-www).
 
 > Due to an influx of spam registrations to our BigBlueButton instance, we added a [reCAPTCHA](https://www.google.com/recaptcha/about/) widget (provided by Google) to the registration form. If you are already registered, this will not affect you; if not, please take this into account when registering to our server.
 
 ### Server
 
-{{< note >}}If you are interested in how we set up our server, click [here](/diy).{{< /note >}}
+{{< note >}}If you are interested in how we set up our BigBlueButton server, click [here](/diy).{{< /note >}}
 
 Our servers are located in Falkenstein, Germany and are rented from the internet hosting company [Hetzner](https://www.hetzner.com/).
 
@@ -158,6 +158,6 @@ If you create an account in our BigBlueButton instance, the following informatio
 * The password you use to create your account; for your own protection, we strongly recommend that you use a new password for your account.
 * The name you enter when creating your account.
 
-We have made slight modifications to the web interface to our BigBlueButton instance; the source code is available [here](https://git.sr.ht/~gjasso/fd-seminar-greenlight).
+We have made slight modifications to the web interface to our BigBlueButton instance; the source code is available [here](https://github.com/gjassoah/fd-seminar-greenlight).
 
 Our SSL/TLS certificates (needed for encrypting the traffic through our website and BigBlueButton server) are provided by [Let's Encrypt](https://letsencrypt.org).
