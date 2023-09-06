@@ -12,7 +12,6 @@
  var mymap = L.map('speakers-map').setView([30, 10], 1.35);
  L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ2phc3NvIiwiYSI6ImNsbTgwamRoMTA0eHgzcHI3cTdudmkxa24ifQ.DfR0MblRq66F97Z7Qe6BHQ', {
 		 maxZoom: 18,
-     zoomOffset: -1,
      attribution: '© <a href="https://www.mapbox.com/contribute/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
  }).addTo(mymap);
  {{ $talks := where site.Pages "Section" "talks" }}
