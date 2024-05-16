@@ -5,92 +5,10 @@
 {{ define "content" }}
 <!--{{ partial "announcements.html" . }}-->
 <!--{{ partial "holiday-info.html" . }}-->
-<div id="link-to-fd-seminar-room" class="navigation">
-    <a href="https://bbb.fd-seminar.xyz/b/org-hdq-4ap">Go to the FD Seminar room (access code required)</a>
-</div>
-
-{{ $pages := .Paginate (where (where site.RegularPages "Type" "talks").ByDate ".Date" ">" now) }}
-<div class="upcoming-talk">
-    <h3>Next talk</h3>
-    {{ range first 1 $pages.Pages }}
-    {{ $date := .Date.Format "2006-01-02" }}
-    <div>
-        {{ if .Params.Icra2020 }}
-        <h4 style="margin-bottom: -1em;">ICRA 2020 Research Snapshot</h4>
-        {{ end }}
-        <h1>{{ .Title }}</h1>
-    </div>
-    <div class="post__meta" style="position: relative;">
-        {{ $notes := printf "%s" ".pdf" | printf "%s%s" $date | printf "%s%s" "static/pdf/talks/" }}
-        <div style="position: absolute; right: 0;">
-            {{ if (fileExists $notes ) -}}
-            <code>
-                <a href="{{ .Site.BaseURL }}/pdf/talks/{{ $date }}.pdf" style="color: inherit;">Slides <i class="fas fa-file-download"></i></a>
-            </code>
-            {{ end }}
-            {{ if .Params.videourl }}
-            <code>
-                <a href="{{ .Params.videourl }}" style="color: inherit;">Video <i class="fas fa-video"></i></a>
-            </code>
-            {{ end }}
-        </div>
-    <div>
-        <i class="fas fa-user"></i> <a href="{{ .Params.speaker.Homepage }}">{{ .Params.speaker.Name }}</a>
-    </div>
-    {{ if .Params.Affiliation }}
-    <div>
-        <i class="fas fa-university"></i> {{ .Params.Affiliation }}, {{ .Params.Location }}
-    </div>
-    {{ end }}
-    <div>
-        <i class="fas fa-calendar-alt"></i>
-        <script>
-         document.write(moment.utc({{ .Date }}).local().format('MMMM Do, YYYY @ h:mm a'));
-        </script>
-        &nbsp;in <b>your</b> local time zone
-    </div>
-    </div>
-    <div class="abstract">
-        {{ .Content }}
-    </div>
-    {{ end }}
-</div>
 
 {{ partial "about-info.html" . }}
 {{ partial "archive-info.html" . }}
 {{ partial "bbb-info.html" . }}
-{{ partial "mailinglist-info.html" . }}
-{{ partial "schedule-info.html" . }}
-
-<div class="future-talks">
-    <h3>Upcoming talks</h3>
-    Click on the title to see the abstract.
-    {{ range after 1 $pages.Pages }}
-    <div>
-        {{ if .Params.Icra2020 }}
-        <h5 style="font-weight: normal; margin-bottom: -1.5em;">ICRA 2020 Research Snapshot</h5>
-        {{ end }}
-        <h1><a href="{{ .Permalink }}" class="future-talk-link">{{ .Title }}</a></h1>
-    </div>
-    <div class="post__meta">
-        <div>
-            <i class="fas fa-user"></i> <a href="{{ .Params.speaker.Homepage }}">{{ .Params.speaker.Name }}</a>
-        </div>
-        {{ if .Params.Affiliation }}
-        <div>
-            <i class="fas fa-university"></i> {{ .Params.Affiliation }}, {{ .Params.Location }}
-        </div>
-        {{ end }}
-        <div>
-            <i class="fas fa-calendar-alt"></i>
-            <script>
-             document.write(moment.utc({{ .Date }}).local().format('MMMM Do, YYYY @ h:mm a'));
-            </script>
-            &nbsp;in <b>your</b> local time zone
-        </div>
-    </div>
-    {{ end }}
-</div>
 
 {{ end }}
 
