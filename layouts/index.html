@@ -13,7 +13,7 @@
 
 {{ partial "speakers-map.html" . }}
 <ul class="posts">
-    {{ with (where site.RegularPages "Type" "talks).ByDate }}
+    {{ with (where site.RegularPages "Type" "talks").ByDate }}
     {{ partial "posts-list.html" . }}
     {{ end }}
 </ul>
