@@ -12,9 +12,9 @@
 <span class="section__title">Archive</span>
 
 {{ partial "speakers-map.html" . }}
-
+{{ $pages := .Paginate (where (where site.RegularPages "Type" "talks").ByDate ".Date" ">" now) }}
 <ul class="posts">
-    {{ with .Data.Pages }}
+    {{ with $pages }}
     {{ partial "posts-list.html" . }}
     {{ end }}
 </ul>
