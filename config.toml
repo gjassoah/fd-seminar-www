@@ -29,11 +29,6 @@ buildFuture = true
   URL = "/"
   weight = 100
 
-[[menu.main]]
-  name = "Mailing list"
-  identifier = "mailinglist"
-  url = "https://listen.uni-bonn.de/wws/info/fd-seminar"
-
 [related]
 
 threshold = 80
