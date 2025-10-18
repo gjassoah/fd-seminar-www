@@ -30,11 +30,6 @@ buildFuture = true
   weight = 100
 
 [[menu.main]]
-  name = "BigBlueButton"
-  identifier = "bbb"
-  URL = "https://bbb.fd-seminar.xyz"
-
-[[menu.main]]
   name = "Mailing list"
   identifier = "mailinglist"
   url = "https://listen.uni-bonn.de/wws/info/fd-seminar"
